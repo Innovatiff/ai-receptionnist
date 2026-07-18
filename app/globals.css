@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-h: 4.5rem;
+  }
+
+  * {
+    @apply border-slate/10;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink text-mist font-sans antialiased;
+    /* Lenis smooth-scroll drives scrolling; keep native fallback sane. */
+  }
+
+  /* Lenis smooth-scroll wiring */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible keyboard focus everywhere (non-negotiable quality floor) */
+  :focus-visible {
+    @apply outline-none ring-2 ring-live ring-offset-2 ring-offset-ink-900;
+    border-radius: 0.35rem;
+  }
+  /* On light sections the ring offset should be light */
+  .section-light :focus-visible {
+    @apply ring-signal ring-offset-mist;
+  }
+
+  ::selection {
+    background: rgba(91, 108, 255, 0.3);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-eyebrow font-mono font-medium uppercase tracking-[0.14em];
+  }
+
+  /* The "money"/live gradient text — used sparingly on signal accents */
+  .text-live-gradient {
+    @apply bg-gradient-to-r from-live via-signal-300 to-signal bg-clip-text text-transparent;
+  }
+  .text-pulse-gradient {
+    @apply bg-gradient-to-r from-pulse-soft via-pulse to-pulse-deep bg-clip-text text-transparent;
+  }
+
+  /* Subtle dotted "signal grid" backdrop for dark sections */
+  .signal-grid {
+    background-image: radial-gradient(
+      rgba(124, 136, 255, 0.09) 1px,
+      transparent 1px
+    );
+    background-size: 26px 26px;
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-ink-700/70 bg-ink-800/70 backdrop-blur;
+  }
+  .card-light {
+    @apply rounded-2xl border border-slate/10 bg-paper shadow-soft;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* soft radial glow helper for hero/backdrops */
+  .glow-signal {
+    background: radial-gradient(
+      60% 60% at 50% 40%,
+      rgba(91, 108, 255, 0.35) 0%,
+      rgba(56, 225, 255, 0.12) 45%,
+      transparent 75%
+    );
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion: instant, static fallback for EVERY animation. Required.
+   Any component that adds motion also checks this in JS via matchMedia.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
