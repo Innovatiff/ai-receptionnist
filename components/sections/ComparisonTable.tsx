@@ -50,7 +50,7 @@ export function ComparisonTable({
         <SectionHeading
           eyebrow="Why not just… X?"
           title="The honest comparison."
-          intro="Voicemail, a human hire, an answering service — here's how each one stacks up against an AI receptionist that actually books the job."
+          intro="Voicemail, a hire, an answering service — none of them book the job 24/7."
         />
       )}
 

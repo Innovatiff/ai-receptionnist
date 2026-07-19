@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CtaCluster } from "@/components/ui/CtaCluster";
 import { GuaranteeBadge } from "@/components/ui/GuaranteeBadge";
 import { ScarcityNote } from "@/components/ui/ScarcityNote";
+import { AnimatedBackdrop } from "@/components/ui/AnimatedBackdrop";
 import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
 
 /** Reusable closing CTA band for interior pages. */
@@ -20,10 +21,7 @@ export function CtaBand({
 }) {
   return (
     <section className="relative overflow-hidden bg-ink-950 py-20 sm:py-24">
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 h-80 w-[42rem] -translate-x-1/2 glow-signal opacity-40 blur-3xl"
-        aria-hidden
-      />
+      <AnimatedBackdrop variant="mix" />
       <div className="container-page relative">
         <motion.div
           variants={staggerParent(0.1)}

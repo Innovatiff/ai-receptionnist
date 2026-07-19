@@ -20,8 +20,7 @@ export function OfferStack() {
       <SectionHeading
         tone="light"
         eyebrow={`Everything in ${site.offerName}`}
-        title="Here's everything you get — and what it's worth."
-        intro="A complete, done-for-you front desk. Stacked up, here's the real value of what you're getting."
+        title="Everything you get — and what it's worth."
       />
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">

@@ -6,8 +6,8 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Soundwave } from "@/components/ui/Soundwave";
 import { CtaCluster } from "@/components/ui/CtaCluster";
-import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
-import { site } from "@/content/site";
+import { AnimatedBackdrop } from "@/components/ui/AnimatedBackdrop";
+import { fadeUp, revealScale, staggerParent, inViewOnce, inViewSoft } from "@/lib/animations";
 
 /**
  * The white-label / tailored differentiator: Novex AI builds each client a
@@ -19,23 +19,23 @@ import { site } from "@/content/site";
 const tailored = [
   {
     icon: Fingerprint,
-    title: "Its own name and voice",
-    body: "Your AI gets a name that fits your brand and a natural voice that greets callers as your business — not a generic bot.",
+    title: "Its own name & voice",
+    body: "Branded to you. Not a generic bot.",
   },
   {
     icon: MessageSquareText,
     title: "Trained on your business",
-    body: "Your services, prices, hours, and the exact questions your callers ask — so every answer sounds like it came from your best front-desk person.",
+    body: "Your services, prices, hours, FAQs.",
   },
   {
     icon: CalendarCog,
-    title: "Booking built around your workflow",
-    body: "We wire it into your calendar and set the booking rules the way you actually run — deposits, buffers, service types, the works.",
+    title: "Booking your way",
+    body: "Wired to your calendar and rules.",
   },
   {
     icon: BadgeCheck,
     title: "Fully done for you",
-    body: "You don't touch software. We build, brand, connect, and tune the whole system. You just watch the calendar fill.",
+    body: "We build it. You watch it fill.",
   },
 ];
 
@@ -49,6 +49,7 @@ const deployments = [
 export function TailoredSection() {
   return (
     <Section tone="ink-deep" id="tailored">
+      <AnimatedBackdrop variant="signal" />
       <div className="signal-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden />
       <div className="relative grid gap-14 lg:grid-cols-[1fr_0.95fr] lg:items-center">
         <div>
@@ -60,21 +61,21 @@ export function TailoredSection() {
                 Your AI. <span className="text-live-gradient">Your name.</span> Your rules.
               </>
             }
-            intro={`${site.name} doesn't hand you generic software. We build you a custom AI receptionist and booking system — trained on your business, answering as your business, with its own name. Your callers just experience a front desk that never misses.`}
+            intro="Not generic software. We build your AI — trained on your business, answering in its own name."
           />
 
           <motion.div
             variants={staggerParent(0.1)}
-            {...inViewOnce}
+            {...inViewSoft}
             className="mt-8 grid gap-4 sm:grid-cols-2"
           >
             {tailored.map((t) => (
               <motion.div
                 key={t.title}
-                variants={fadeUp}
-                className="rounded-2xl border border-ink-700/60 bg-ink-800/40 p-5"
+                variants={revealScale}
+                className="group rounded-2xl border border-ink-700/60 bg-ink-800/40 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:bg-ink-800/70"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-signal/10 text-signal">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-signal/10 text-signal transition-all duration-300 group-hover:scale-110 group-hover:bg-signal group-hover:text-white">
                   <t.icon className="h-5 w-5" aria-hidden />
                 </span>
                 <h3 className="mt-4 font-display text-base font-semibold text-white">
@@ -93,11 +94,7 @@ export function TailoredSection() {
         {/* Example named deployments */}
         <motion.div variants={fadeUp} {...inViewOnce} className="lg:pl-4">
           <div className="rounded-3xl border border-ink-700/60 bg-gradient-to-br from-ink-800/70 to-ink-950 p-6 shadow-card sm:p-8">
-            <p className="eyebrow text-live">One brain, tailored per business</p>
-            <p className="mt-2 text-sm text-mist/60">
-              A few examples of how the same technology shows up — each with its own
-              name, brand, and booking setup.
-            </p>
+            <p className="eyebrow text-live">Each client, their own named AI</p>
             <div className="mt-6 space-y-3">
               {deployments.map((d) => (
                 <div

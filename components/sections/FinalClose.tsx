@@ -6,6 +6,7 @@ import { CtaCluster } from "@/components/ui/CtaCluster";
 import { GuaranteeBadge } from "@/components/ui/GuaranteeBadge";
 import { ScarcityNote } from "@/components/ui/ScarcityNote";
 import { Soundwave } from "@/components/ui/Soundwave";
+import { AnimatedBackdrop } from "@/components/ui/AnimatedBackdrop";
 import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
 
 const recap = [
@@ -18,11 +19,8 @@ const recap = [
 export function FinalClose() {
   return (
     <section className="relative overflow-hidden bg-ink-950 py-20 sm:py-28">
+      <AnimatedBackdrop variant="mix" />
       <div className="signal-grid pointer-events-none absolute inset-0 opacity-50" aria-hidden />
-      <div
-        className="pointer-events-none absolute left-1/2 top-0 h-96 w-[42rem] -translate-x-1/2 glow-signal opacity-50 blur-3xl"
-        aria-hidden
-      />
       <div className="container-page relative">
         <motion.div
           variants={staggerParent(0.1)}

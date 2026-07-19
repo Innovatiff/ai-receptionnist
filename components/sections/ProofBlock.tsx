@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import { StatCounter } from "@/components/ui/StatCounter";
-import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
+import { revealScale, staggerParent, inViewSoft } from "@/lib/animations";
 import { testimonials, resultStats, trustLogos } from "@/content/testimonials";
 
 /** 4.8 Proof — placeholder-driven social proof. Nothing here is a real claim yet. */
@@ -15,19 +15,19 @@ export function ProofBlock() {
       <SectionHeading
         eyebrow="Proof it works"
         title="Local businesses stopped losing calls. So can you."
-        intro="Real results and quotes go here once your first clients are live. Everything below is a clearly-labeled placeholder until then."
+        intro="Real numbers and quotes land here as clients go live. Placeholders for now."
       />
 
       {/* Results strip */}
       <motion.div
         variants={staggerParent(0.1)}
-        {...inViewOnce}
+        {...inViewSoft}
         className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4"
       >
         {resultStats.map((s) => (
           <motion.div
             key={s.label}
-            variants={fadeUp}
+            variants={revealScale}
             className="rounded-2xl border border-ink-700/60 bg-ink-800/50 p-6 text-center"
           >
             <p className="font-display text-3xl font-bold text-live sm:text-4xl">
@@ -49,11 +49,11 @@ export function ProofBlock() {
       {/* Testimonials */}
       <motion.div
         variants={staggerParent(0.1)}
-        {...inViewOnce}
+        {...inViewSoft}
         className="mt-8 grid gap-5 md:grid-cols-3"
       >
         {testimonials.map((t, i) => (
-          <motion.div key={i} variants={fadeUp}>
+          <motion.div key={i} variants={revealScale}>
             <TestimonialCard t={t} tone="dark" />
           </motion.div>
         ))}

@@ -29,9 +29,8 @@ export const site = {
   // Consistent CTA vocabulary site-wide (Section 9).
   cta: {
     primary: "Book My Free Demo",
-    primarySupport:
-      "We'll have your AI receptionist answer a live call — hear it before you decide.",
-    secondary: "Hear a 30-second demo",
+    primarySupport: "Hear it answer a live call before you decide.",
+    secondary: "Hear a 30-sec demo",
     href: "/demo",
   },
 

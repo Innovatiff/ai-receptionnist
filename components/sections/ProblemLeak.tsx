@@ -12,18 +12,18 @@ import { site } from "@/content/site";
 const moments = [
   {
     icon: MoonStar,
-    title: "7:04 PM on a Saturday",
-    body: "A new customer calls with a job. You're closed. Voicemail picks up. They hang up and call the next name on the list.",
+    title: "7:04 PM, Saturday",
+    body: "You're closed. Voicemail picks up. They call the next name on the list.",
   },
   {
     icon: Users,
-    title: "While you're with a customer",
-    body: "You can't stop mid-job to answer. The phone rings out. That caller doesn't leave a message — they book with whoever answers.",
+    title: "Mid-job with a customer",
+    body: "You can't answer. No message. They book with whoever picks up.",
   },
   {
     icon: PhoneOff,
     title: "The lunch-hour rush",
-    body: "Everyone's out. Calls stack up and roll to voicemail. By the time you check, the lead is already booked somewhere else.",
+    body: "Calls roll to voicemail. By the time you check, it's gone.",
   },
 ];
 
@@ -42,7 +42,7 @@ export function ProblemLeak() {
                 <span className="text-pulse">calling your competitor.</span>
               </>
             }
-            intro="Industry studies put a large share of inbound calls to local businesses at unanswered — and most callers who hit voicemail simply hang up and dial the next name on the list. No message. No second chance."
+            intro="A large share of calls to local businesses go unanswered. Most callers who hit voicemail just hang up and dial the next name. No second chance."
           />
 
           <motion.div
@@ -87,14 +87,12 @@ export function ProblemLeak() {
               <StatCounter to={4800} duration={2000} />
             </p>
             <p className="mt-2 text-sm text-mist/60">
-              an illustrative estimate of monthly revenue leaking through missed
-              calls for a typical local business
+              estimated monthly leak for a typical local business
             </p>
             <div className="mt-6 rounded-xl border border-ink-700/60 bg-ink-950/40 p-4 text-left text-sm text-mist/65">
               <p className="font-semibold text-white">Your phone is a leaky bucket.</p>
               <p className="mt-1">
-                Every unanswered ring is money dripping out. We plug it — see
-                exactly how much you could recover with the{" "}
+                See what you could recover with the{" "}
                 <a href="/calculator" className="text-live underline underline-offset-4 hover:text-live-soft">
                   Missed-Money Calculator
                 </a>

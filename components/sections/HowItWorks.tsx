@@ -14,20 +14,20 @@ const steps = [
   {
     icon: ClipboardList,
     title: "We build it",
-    body: "You send your info once. We train your AI receptionist on your services, hours, and FAQs — in your voice, for your business.",
-    tag: "You spend ~15 minutes",
+    body: "Send your info once. We train your AI on your services, hours & FAQs.",
+    tag: "~15 minutes",
   },
   {
     icon: PlugZap,
     title: "We plug it in",
-    body: "Forward your calls — keep your number. Choose all calls, after-hours only, or overflow only. Live in 7 days, zero effort from you.",
+    body: "Forward your calls — keep your number. Zero effort from you.",
     tag: "Live in 7 days",
   },
   {
     icon: CalendarHeart,
     title: "It books for you",
-    body: "The AI answers, books, and follows up 24/7 while you work — or sleep. You wake up to a calendar that filled itself overnight.",
-    tag: "Working 24/7/365",
+    body: "Answers, books & follows up 24/7 while you work or sleep.",
+    tag: "24/7/365",
   },
 ];
 
@@ -67,7 +67,6 @@ export function HowItWorks() {
       <SectionHeading
         eyebrow="Done for you in 3 steps"
         title="Live in 7 days. You don't lift a finger."
-        intro="This is a real sequence, not a sales pitch. Here's exactly what happens after you say yes."
       />
 
       <div ref={sectionRef} className="relative mx-auto mt-16 max-w-3xl">

@@ -1,11 +1,11 @@
-import { PlayCircle } from "lucide-react";
 import { Button } from "./Button";
+import { DemoButton } from "./DemoButton";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
 /**
- * The one CTA, everywhere: primary "Book My Free Demo" + support line, with
- * an optional ghost secondary ("Hear a 30-second demo"). Consistent vocabulary.
+ * The one CTA, everywhere: primary "Book My Free Demo" + a short support line,
+ * with an optional animated "Hear a 30-second demo" secondary.
  */
 export function CtaCluster({
   align = "center",
@@ -37,22 +37,14 @@ export function CtaCluster({
           {site.cta.primary}
         </Button>
         {showSecondary && (
-          <Button
-            href={secondaryHref}
-            size="lg"
-            variant={tone === "dark" ? "ghost" : "dark"}
-            trackLabel={`${trackLabel}_secondary`}
-          >
-            <PlayCircle className="h-5 w-5" aria-hidden />
-            {site.cta.secondary}
-          </Button>
+          <DemoButton href={secondaryHref} tone={tone} trackLabel={trackLabel} />
         )}
       </div>
       {showSupport && (
         <p
           className={cn(
-            "max-w-md text-sm",
-            tone === "dark" ? "text-mist/60" : "text-slate",
+            "text-sm",
+            tone === "dark" ? "text-mist/55" : "text-slate",
             align === "center" && "mx-auto"
           )}
         >

@@ -25,7 +25,7 @@ export function HearItYourself() {
               Don&apos;t take our word for it. <span className="text-live-gradient">Hear it.</span>
             </>
           }
-          intro="Press play on a real sample call — or call the live demo line right now and talk to it yourself."
+          intro="Press play — or call the live line and talk to it yourself."
         />
 
         <motion.div variants={fadeUp} {...inViewOnce} className="mt-10">
