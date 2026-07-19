@@ -6,15 +6,16 @@ import { CtaCluster } from "@/components/ui/CtaCluster";
 import { LivePill } from "@/components/ui/LivePill";
 import { GuaranteeBadge } from "@/components/ui/GuaranteeBadge";
 import { fadeUp, staggerParent } from "@/lib/animations";
-import { trustStrip } from "@/content/site";
+import { trustStrip, site } from "@/content/site";
 
 /**
  * 4.1 Hero — the thesis. NOT a generic big-number/gradient hero: the star is a
- * live call in progress (the CallSequence signature element).
+ * live call in progress (the CallSequence signature element), branded to an
+ * example client to show the white-label/tailored positioning.
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink-950 pt-[calc(var(--header-h)+3rem)] pb-20 sm:pb-24">
+    <section className="relative overflow-hidden bg-ink-950 pt-[calc(var(--header-h)+2.5rem)] pb-16 sm:pt-[calc(var(--header-h)+3rem)] sm:pb-24">
       {/* backdrop: dotted signal grid + soft glow */}
       <div className="signal-grid pointer-events-none absolute inset-0 opacity-70" aria-hidden />
       <div
@@ -22,7 +23,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+      <div className="container-page relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
         <motion.div
           variants={staggerParent(0.1)}
           initial="hidden"
@@ -33,23 +34,19 @@ export function Hero() {
             <LivePill label="Your line is being answered" />
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp}
-            className="text-display-xl text-white"
-          >
+          <motion.h1 variants={fadeUp} className="text-display-xl text-white">
             Never Miss a Call.
-            <br />
-            Never Lose a Customer.{" "}
+            <br className="hidden sm:block" /> Never Lose a Customer.{" "}
             <span className="text-live-gradient">Ever.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="max-w-xl text-lg leading-relaxed text-mist/75 sm:text-xl"
+            className="max-w-xl text-base leading-relaxed text-mist/75 sm:text-lg"
           >
-            Your AI receptionist answers every call 24/7, books appointments
-            straight into your calendar, and texts back every lead —
-            automatically. Set up for you in 7 days.
+            {site.name} builds you a custom AI receptionist that answers every call
+            24/7 — as your business, in its own name — books appointments straight into
+            your calendar, and texts back every lead. Done for you, live in 7 days.
           </motion.p>
 
           <motion.div variants={fadeUp} className="w-full">
@@ -60,18 +57,18 @@ export function Hero() {
             <GuaranteeBadge variant="seal" />
           </motion.div>
 
-          {/* Trust strip — product facts, not fabricated stats */}
+          {/* Trust strip — product facts, not fabricated stats. Wraps cleanly on mobile. */}
           <motion.ul
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-sm text-mist/60"
+            className="flex flex-wrap gap-x-2.5 gap-y-2 pt-1"
           >
-            {trustStrip.map((item, i) => (
-              <li key={item} className="flex items-center gap-5">
-                {i > 0 && <span className="hidden text-ink-600 sm:inline">·</span>}
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden />
-                  {item}
-                </span>
+            {trustStrip.map((item) => (
+              <li
+                key={item}
+                className="inline-flex items-center gap-1.5 rounded-full border border-ink-700/70 bg-ink-900/50 px-3 py-1.5 text-xs font-medium text-mist/70"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden />
+                {item}
               </li>
             ))}
           </motion.ul>
@@ -81,6 +78,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full"
         >
           <CallSequence />
         </motion.div>

@@ -24,7 +24,7 @@ export function Logo({
       )}
     >
       <span
-        className="flex h-9 w-9 items-center justify-center gap-[2px] rounded-lg bg-gradient-to-br from-signal to-signal-700 shadow-glow"
+        className="flex h-9 w-9 items-center justify-center gap-[2px] rounded-xl bg-gradient-to-br from-signal to-signal-700 shadow-glow ring-1 ring-white/10"
         aria-hidden
       >
         {bars.map((h, i) => (
@@ -35,9 +35,9 @@ export function Logo({
           />
         ))}
       </span>
-      <span>
-        {site.name}
-        <span className="text-signal-400">.</span>
+      <span className="leading-none">
+        {site.brand.lead}
+        <span className="text-signal-400"> {site.brand.tail}</span>
       </span>
     </Link>
   );

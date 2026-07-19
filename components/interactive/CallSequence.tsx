@@ -9,12 +9,15 @@ import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
 import { site } from "@/content/site";
 
 /**
- * The signature "Live Line" hero animation.
- * Plays: incoming call → AI answers (soundwave + transcript) → calendar slot
- * fills → confirmation text slides in → brief hold → loop.
- * Under prefers-reduced-motion it renders the final booked+texted state
- * statically (no motion, no timers).
+ * The signature "Live Line" hero animation — and the clearest demonstration of
+ * the white-label positioning: the card belongs to an example client business
+ * (site.demoClient), the AI has its own name, and there's a discreet
+ * "by Novex AI" attribution. It plays: incoming call → AI answers (soundwave +
+ * transcript) → calendar slot fills → confirmation text slides in → loop.
+ * Under prefers-reduced-motion it renders the final booked+texted state.
  */
+
+const CLIENT = site.demoClient;
 
 type Stage = "ringing" | "answering" | "booking" | "booked" | "texted";
 const ORDER: Stage[] = ["ringing", "answering", "booking", "booked", "texted"];
@@ -27,7 +30,7 @@ const DURATIONS: Record<Stage, number> = {
 };
 
 const transcript = [
-  { who: "ai", text: `Thanks for calling ${site.name}. How can I help you today?` },
+  { who: "ai", text: `Thanks for calling ${CLIENT.business}, this is ${CLIENT.assistant}. How can I help?` },
   { who: "caller", text: "Hi — do you have anything open this week?" },
   { who: "ai", text: "Absolutely. I've got Tuesday at 2:00 PM. Shall I book it?" },
   { who: "caller", text: "Perfect, yes please." },
@@ -60,16 +63,18 @@ export function CallSequence() {
         aria-hidden
       />
 
-      <div className="card-dark overflow-hidden rounded-3xl shadow-glow">
-        {/* Phone header */}
+      <div className="card-dark overflow-hidden rounded-[1.75rem] shadow-glow ring-1 ring-white/5">
+        {/* Phone header — branded to the client business (white-label) */}
         <div className="flex items-center justify-between border-b border-ink-700/70 bg-ink-850/80 px-5 py-4">
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-signal to-signal-700">
-              <PhoneCall className="h-4 w-4 text-white" aria-hidden />
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-signal to-signal-700 font-display text-sm font-bold text-white ring-1 ring-white/15">
+              {CLIENT.assistant.charAt(0)}
             </span>
             <div className="leading-tight">
-              <p className="font-display text-sm font-semibold text-white">{site.name}</p>
-              <p className="text-xs text-mist/50">AI Receptionist</p>
+              <p className="font-display text-sm font-semibold text-white">
+                {CLIENT.assistant}
+              </p>
+              <p className="text-xs text-mist/50">{CLIENT.business} · AI Receptionist</p>
             </div>
           </div>
           <LivePill
@@ -121,7 +126,7 @@ export function CallSequence() {
                 <div className="flex items-center gap-3 pb-3">
                   <Soundwave bars={7} height={26} className="text-live" />
                   <span className="font-mono text-xs uppercase tracking-widest text-live">
-                    Answering
+                    {CLIENT.assistant} is answering
                   </span>
                 </div>
                 <div className="flex-1 space-y-2.5 overflow-hidden">
@@ -157,7 +162,7 @@ export function CallSequence() {
                 <div className="rounded-2xl border border-ink-700/70 bg-ink-850/60 p-4">
                   <div className="mb-3 flex items-center justify-between">
                     <p className="text-xs font-medium uppercase tracking-widest text-mist/50">
-                      Your calendar
+                      {CLIENT.short}&apos;s calendar
                     </p>
                     <CalendarCheck className="h-4 w-4 text-live" aria-hidden />
                   </div>
@@ -209,7 +214,7 @@ export function CallSequence() {
                       <MessageSquareText className="mt-0.5 h-4 w-4 shrink-0 text-live" aria-hidden />
                       <p className="text-sm text-mist">
                         <span className="font-semibold text-white">Text sent:</span>{" "}
-                        “You're booked with {site.name} for Tue 2:00 PM. Reply C to
+                        “You're booked with {CLIENT.business} for Tue 2:00 PM. Reply C to
                         confirm. See you then!”
                       </p>
                     </motion.div>
@@ -219,20 +224,26 @@ export function CallSequence() {
             )}
           </AnimatePresence>
         </div>
-      </div>
 
-      {/* Stage progress dots */}
-      <div className="mt-4 flex items-center justify-center gap-2" aria-hidden>
-        {ORDER.map((st, i) => (
-          <span
-            key={st}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              (reduced ? true : i <= stageIndex)
-                ? "w-6 bg-live"
-                : "w-1.5 bg-ink-600"
-            }`}
-          />
-        ))}
+        {/* White-label attribution */}
+        <div className="flex items-center justify-between gap-2 border-t border-ink-700/70 bg-ink-950/50 px-5 py-2.5">
+          <div className="flex items-center gap-1.5" aria-hidden>
+            {ORDER.map((st, i) => (
+              <span
+                key={st}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  (reduced ? true : i <= stageIndex)
+                    ? "w-5 bg-live"
+                    : "w-1.5 bg-ink-600"
+                }`}
+              />
+            ))}
+          </div>
+          <p className="flex items-center gap-1.5 text-[0.7rem] font-medium text-mist/45">
+            <PhoneCall className="h-3 w-3 text-signal-400" aria-hidden />
+            Tailored &amp; built by {site.name}
+          </p>
+        </div>
       </div>
     </div>
   );

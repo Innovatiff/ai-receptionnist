@@ -4,25 +4,40 @@
  */
 
 export const site = {
-  name: "RingKept",
-  // PLACEHOLDER — replace with your real brand name if different.
-  tagline: "The 24/7 Booking Machine",
+  name: "Novex AI",
+  // Two-part wordmark for the logo (lead in white, tail as the signal accent).
+  brand: { lead: "Novex", tail: "AI" },
+  tagline: "Custom AI receptionists for local business",
   offerName: "The 24/7 Booking Machine",
-  domain: "https://ringkept.com", // PLACEHOLDER — replace with your real domain.
+  domain: "https://novexai.com", // PLACEHOLDER — replace with your real domain.
   bigIdea: "Your phone is a leaky bucket. We plug it.",
+
+  /**
+   * The white-label positioning: Novex AI is the company. What each client gets
+   * is a *custom* AI receptionist + booking system — trained on their business,
+   * answering as their business, and given its own name. The hero call card and
+   * the "Your AI, your name" section use this example client to show the tailoring.
+   */
+  demoClient: {
+    // PLACEHOLDER — an example of a tailored, client-branded deployment.
+    business: "Brightwater Dental",
+    short: "Brightwater",
+    assistant: "Ava", // the AI's own name, tailored per client
+    industry: "Dental",
+  },
 
   // Consistent CTA vocabulary site-wide (Section 9).
   cta: {
     primary: "Book My Free Demo",
     primarySupport:
-      "I'll have your AI receptionist answer a live call — hear it before you decide.",
+      "We'll have your AI receptionist answer a live call — hear it before you decide.",
     secondary: "Hear a 30-second demo",
     href: "/demo",
   },
 
   contact: {
     // PLACEHOLDER — replace with your real contact details.
-    email: "hello@ringkept.com",
+    email: "hello@novexai.com",
     phone: "(555) 018-2277",
     phoneHref: "tel:+15550182277",
     demoLine: "(555) 018-2200",
@@ -33,7 +48,7 @@ export const site = {
   founder: {
     // PLACEHOLDER — replace with the real founder name.
     name: "Alex Rivera",
-    role: "Founder & Onboarding Lead",
+    role: "Founder, Novex AI",
   },
 } as const;
 
@@ -83,7 +98,7 @@ export const scarcity = {
   monthLabel: "this month",
   foundingClients: 10, // PLACEHOLDER — founding-client count; setup rises after.
   foundingPriceAfter: 1497,
-  note: "I personally build and onboard every account, so I only open a handful of new spots each month. When they're full, the next opening is next month.",
+  note: "We personally build and onboard every account, so we only open a handful of new spots each month. When they're full, the next opening is next month.",
 } as const;
 
 export const trustStrip = [

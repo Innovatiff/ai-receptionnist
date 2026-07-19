@@ -18,11 +18,11 @@ const variants: Record<Variant, string> = {
     "bg-pulse text-ink-950 shadow-pulse-glow hover:bg-pulse-hover hover:-translate-y-0.5 hover:shadow-[0_18px_50px_-12px_rgba(255,122,89,0.7)]",
   // Ghost — for secondary actions on dark backgrounds.
   ghost:
-    "border border-mist/25 text-mist hover:border-live/60 hover:text-white bg-white/0 hover:bg-white/5",
+    "border border-mist/20 bg-white/[0.04] text-mist backdrop-blur hover:border-live/50 hover:bg-white/[0.08] hover:text-white",
   light:
     "bg-mist text-ink-900 hover:bg-white hover:-translate-y-0.5 shadow-soft",
   dark:
-    "bg-ink-900 text-mist hover:bg-ink-800 border border-ink-700",
+    "border border-ink-700 bg-ink-900 text-mist hover:border-ink-600 hover:bg-ink-800",
 };
 
 const sizes: Record<Size, string> = {

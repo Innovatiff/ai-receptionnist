@@ -91,10 +91,15 @@
   }
 
   .card-dark {
-    @apply rounded-2xl border border-ink-700/70 bg-ink-800/70 backdrop-blur;
+    @apply rounded-2xl border border-ink-700/70 bg-ink-800/70 ring-1 ring-white/[0.03] backdrop-blur;
   }
   .card-light {
-    @apply rounded-2xl border border-slate/10 bg-paper shadow-soft;
+    @apply rounded-2xl border border-slate/10 bg-paper shadow-soft ring-1 ring-ink-900/[0.02];
+  }
+
+  /* Premium hairline divider used between light sections */
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-slate/15 to-transparent;
   }
 }
 

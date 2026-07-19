@@ -66,16 +66,16 @@ const config: Config = {
         // Intentional type scale
         eyebrow: ["0.8125rem", { lineHeight: "1", letterSpacing: "0.14em" }],
         "display-xl": [
-          "clamp(2.75rem, 6vw, 5rem)",
-          { lineHeight: "1.02", letterSpacing: "-0.03em" },
+          "clamp(2.5rem, 5.4vw, 4.75rem)",
+          { lineHeight: "1.04", letterSpacing: "-0.032em" },
         ],
         "display-lg": [
-          "clamp(2.25rem, 4.5vw, 3.5rem)",
-          { lineHeight: "1.05", letterSpacing: "-0.025em" },
+          "clamp(2.1rem, 4.2vw, 3.4rem)",
+          { lineHeight: "1.07", letterSpacing: "-0.028em" },
         ],
         "display-md": [
-          "clamp(1.75rem, 3vw, 2.5rem)",
-          { lineHeight: "1.1", letterSpacing: "-0.02em" },
+          "clamp(1.7rem, 3vw, 2.5rem)",
+          { lineHeight: "1.12", letterSpacing: "-0.022em" },
         ],
       },
       borderRadius: {

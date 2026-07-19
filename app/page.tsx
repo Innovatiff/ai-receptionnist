@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { ProblemLeak } from "@/components/sections/ProblemLeak";
 import { SolutionCards } from "@/components/sections/SolutionCards";
+import { TailoredSection } from "@/components/sections/TailoredSection";
 import { HearItYourself } from "@/components/sections/HearItYourself";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { OfferStack } from "@/components/sections/OfferStack";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Hero />
       <ProblemLeak />
       <SolutionCards />
+      <TailoredSection />
       <HearItYourself />
       <HowItWorks />
       <OfferStack />

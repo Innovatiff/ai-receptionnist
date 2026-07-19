@@ -1,8 +1,17 @@
-# RingKept — AI Receptionist Sales Site
+# Novex AI — AI Receptionist Sales Site
 
-A high-conversion marketing site for a done-for-you AI receptionist ("The 24/7
-Booking Machine"). Built to a Hormozi grand-slam-offer + PAS structure with a
-signature "Live Line" design direction.
+A high-conversion marketing site for **Novex AI**, a done-for-you agency that
+builds each client a *custom, white-labeled* AI receptionist + booking system
+("The 24/7 Booking Machine") — trained on their business, answering as their
+business, with its own name. Built to a Hormozi grand-slam-offer + PAS structure
+with a signature "Live Line" design direction.
+
+> **Positioning:** Novex AI is the company. What each client receives is a
+> tailored AI (its own name, e.g. "Ava · Brightwater Dental") and booking
+> software set up around their workflow. The hero call card and the
+> "Your AI, your name" section (`components/sections/TailoredSection.tsx`)
+> demonstrate this white-label model. The example client lives in
+> `content/site.ts` → `site.demoClient`.
 
 **Stack:** Next.js 15 (App Router) · TypeScript · Tailwind CSS · Framer Motion ·
 GSAP + ScrollTrigger · Lenis · lucide-react · Vercel Analytics.

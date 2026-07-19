@@ -35,7 +35,7 @@ export function Section({
     <Tag
       id={id}
       className={cn(
-        "relative scroll-mt-24 py-20 sm:py-24 lg:py-28",
+        "relative scroll-mt-24 py-16 sm:py-20 lg:py-28",
         toneClasses[tone],
         className
       )}

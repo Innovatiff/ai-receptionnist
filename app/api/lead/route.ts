@@ -65,7 +65,7 @@ export async function POST(req: Request) {
   // Deliver via Resend if configured; otherwise log for the owner to wire up.
   const resendKey = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_NOTIFY_EMAIL || site.contact.email;
-  const from = process.env.LEAD_FROM_EMAIL || "leads@ringkept.com";
+  const from = process.env.LEAD_FROM_EMAIL || "leads@novexai.com";
 
   if (resendKey) {
     try {
