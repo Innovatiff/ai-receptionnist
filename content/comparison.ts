@@ -1,74 +1,120 @@
 /**
- * Comparison table (Section 4.9): AI Receptionist vs Voicemail vs Human
- * Receptionist vs Answering Service. Honest — our column wins on the things
- * that matter, but we don't fake the ones where others are fine.
+ * Comparison table (Section 4.9 revised). Adds the "DIY AI Software" column to
+ * kill the "why not just rent a $49 tool" objection. Honest — our column wins
+ * on what matters, and we don't fake the rows where others are fine.
  */
 
-export type Cell = boolean | "partial" | string;
+export type Cell =
+  | { t: "yes"; note?: string }
+  | { t: "no"; note?: string }
+  | { t: "warn"; note?: string }
+  | { t: "dash" }
+  | { t: "text"; v: string };
+
+const yes = (note?: string): Cell => ({ t: "yes", note });
+const no = (note?: string): Cell => ({ t: "no", note });
+const warn = (note?: string): Cell => ({ t: "warn", note });
+const dash = (): Cell => ({ t: "dash" });
+const txt = (v: string): Cell => ({ t: "text", v });
+
+export const comparisonColumns = [
+  { key: "us", label: "Us", highlight: true },
+  { key: "diy", label: "DIY AI Software", highlight: false },
+  { key: "voicemail", label: "Voicemail", highlight: false },
+  { key: "service", label: "Answering Service", highlight: false },
+  { key: "human", label: "Human Receptionist", highlight: false },
+] as const;
 
 export type ComparisonRow = {
   feature: string;
-  ai: Cell;
+  emphasize?: boolean;
+  us: Cell;
+  diy: Cell;
   voicemail: Cell;
-  human: Cell;
   service: Cell;
+  human: Cell;
 };
-
-export const comparisonColumns = [
-  { key: "ai", label: "AI Receptionist", highlight: true },
-  { key: "voicemail", label: "Voicemail", highlight: false },
-  { key: "human", label: "Human Receptionist", highlight: false },
-  { key: "service", label: "Answering Service", highlight: false },
-] as const;
 
 export const comparisonRows: ComparisonRow[] = [
   {
     feature: "Answers 24/7",
-    ai: true,
-    voicemail: "Takes a message",
-    human: false,
-    service: true,
+    us: yes(),
+    diy: yes(),
+    voicemail: dash(),
+    service: yes(),
+    human: no(),
   },
   {
-    feature: "Books appointments",
-    ai: true,
-    voicemail: false,
-    human: true,
-    service: "partial",
+    feature: "Books the appointment",
+    emphasize: true,
+    us: yes(),
+    diy: warn("if you build it"),
+    voicemail: no(),
+    service: no("takes a message"),
+    human: yes(),
   },
   {
-    feature: "Texts back missed calls",
-    ai: true,
-    voicemail: false,
-    human: "partial",
-    service: "partial",
+    feature: "Texts back every missed lead",
+    us: yes(),
+    diy: warn("if you build it"),
+    voicemail: no(),
+    service: no(),
+    human: no(),
+  },
+  {
+    feature: "Built & trained for your business",
+    emphasize: true,
+    us: yes("done for you"),
+    diy: no("you build it"),
+    voicemail: dash(),
+    service: no("generic script"),
+    human: yes(),
+  },
+  {
+    feature: "Who sets it up",
+    emphasize: true,
+    us: txt("We do. 7 days."),
+    diy: txt("You do. Weeks."),
+    voicemail: dash(),
+    service: txt("Them"),
+    human: txt("You hire & train"),
+  },
+  {
+    feature: "Tuned for you every month",
+    us: yes(),
+    diy: no(),
+    voicemail: dash(),
+    service: no(),
+    human: warn(),
   },
   {
     feature: "Speaks EN / FR / ES",
-    ai: true,
-    voicemail: false,
-    human: "partial",
-    service: "partial",
+    us: yes(),
+    diy: warn("varies"),
+    voicemail: no(),
+    service: warn("extra"),
+    human: warn("rare"),
   },
   {
-    feature: "Never sick / never quits",
-    ai: true,
-    voicemail: true,
-    human: false,
-    service: "partial",
+    feature: "Never sick, never quits",
+    us: yes(),
+    diy: yes(),
+    voicemail: yes(),
+    service: yes(),
+    human: no(),
   },
   {
     feature: "Monthly cost",
-    ai: "$297",
-    voicemail: "$0",
-    human: "$3,000+",
-    service: "$400–$1,500",
-  },
-  {
-    feature: "Setup time",
-    ai: "7 days, done for you",
-    voicemail: "—",
-    human: "Weeks to hire & train",
-    service: "Days to weeks",
+    emphasize: true,
+    us: txt("$297–$997"),
+    diy: txt("$49–$199"),
+    voicemail: txt("$0"),
+    service: txt("$400–$700"),
+    human: txt("$2,800–$4,500"),
   },
 ];
+
+export const comparisonPunchline = {
+  lead: "Yes, you can rent AI software for $49 a month.",
+  body: "Then you build it, train it, connect your calendar, write the scripts, test it, and fix it when it breaks. We hand you a finished receptionist in 7 days and tune it every month. That's the difference between a tool and a front desk.",
+};

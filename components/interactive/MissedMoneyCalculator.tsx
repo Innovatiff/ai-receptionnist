@@ -187,7 +187,7 @@ export function MissedMoneyCalculator({
           </p>
           <p className="mt-2 text-mist/70">
             That&apos;s money your AI receptionist could put back on the calendar —
-            for {site.tagline ? "$297/month" : "a fraction of a hire"}.
+            from $297/month.
           </p>
         </motion.div>
 

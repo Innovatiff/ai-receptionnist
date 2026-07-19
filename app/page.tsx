@@ -4,7 +4,7 @@ import { SolutionCards } from "@/components/sections/SolutionCards";
 import { TailoredSection } from "@/components/sections/TailoredSection";
 import { HearItYourself } from "@/components/sections/HearItYourself";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { OfferStack } from "@/components/sections/OfferStack";
+import { PricingTiers } from "@/components/sections/PricingTiers";
 import { GuaranteeBand } from "@/components/sections/GuaranteeBand";
 import { ProofBlock } from "@/components/sections/ProofBlock";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
@@ -21,7 +21,7 @@ export default function HomePage() {
       <TailoredSection />
       <HearItYourself />
       <HowItWorks />
-      <OfferStack />
+      <PricingTiers />
       <GuaranteeBand />
       <ProofBlock />
       <ComparisonTable />

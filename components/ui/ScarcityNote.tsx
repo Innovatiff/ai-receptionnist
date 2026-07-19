@@ -1,19 +1,17 @@
 import { CalendarClock } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { scarcity } from "@/content/site";
+import { SCARCITY } from "@/content/pricing";
 
 /**
- * Honest scarcity (Section 2.3): editable spot count, NOT a fake resetting
- * timer. `spotsRemaining` and copy come from content/site.ts.
+ * Honest founding-client scarcity (Section 2.5): editable spot count, NOT a
+ * fake resetting timer. `spotsRemaining` comes from content/pricing.ts.
  */
 export function ScarcityNote({
-  spotsRemaining = scarcity.spotsRemaining,
-  showFounding = false,
+  spotsRemaining = SCARCITY.spotsRemaining,
   tone = "dark",
   className,
 }: {
   spotsRemaining?: number;
-  showFounding?: boolean;
   tone?: "dark" | "light";
   className?: string;
 }) {
@@ -29,17 +27,15 @@ export function ScarcityNote({
     >
       <p className="flex items-center gap-2 font-semibold text-pulse">
         <CalendarClock className="h-4 w-4" aria-hidden />
-        {spotsRemaining} onboarding {spotsRemaining === 1 ? "spot" : "spots"} left{" "}
-        {scarcity.monthLabel}
+        Founding-client pricing · {spotsRemaining}{" "}
+        {spotsRemaining === 1 ? "spot" : "spots"} left this month
       </p>
-      <p className="mt-2">{scarcity.note}</p>
-      {showFounding && (
-        <p className="mt-2">
-          Founding-client pricing is locked for the first{" "}
-          <strong>{scarcity.foundingClients}</strong> businesses {scarcity.monthLabel}.
-          After that, setup goes to ${scarcity.foundingPriceAfter.toLocaleString()}.
-        </p>
-      )}
+      <p className="mt-2">
+        I personally build and tune every account, so I only take on a handful of new
+        businesses each month. The first <strong>{spotsRemaining}</strong> businesses
+        this month lock today&apos;s rate for 12 months — in exchange for a testimonial
+        once it&apos;s working.
+      </p>
     </div>
   );
 }

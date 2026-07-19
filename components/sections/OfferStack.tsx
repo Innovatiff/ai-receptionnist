@@ -10,17 +10,21 @@ import { CtaCluster } from "@/components/ui/CtaCluster";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
 import { formatUSD } from "@/lib/utils";
-import { valueStack, totalValueNumber } from "@/content/offer";
-import { site } from "@/content/site";
+import { valueStackFor, professional } from "@/content/pricing";
 
-/** 4.6 The Offer — the value stack, animated total, and price drop. */
+/**
+ * The full value stack for the Professional plan (used on /pricing). Struck-through
+ * values build on scroll; the total lands hard before the price drop.
+ */
 export function OfferStack() {
+  const stack = valueStackFor("professional");
   return (
     <Section tone="mist" id="offer">
       <SectionHeading
         tone="light"
-        eyebrow={`Everything in ${site.offerName}`}
+        eyebrow="Everything in Professional"
         title="Everything you get — and what it's worth."
+        intro="The Professional plan, itemized. Stacked up, here's the real value."
       />
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -31,7 +35,7 @@ export function OfferStack() {
           className="overflow-hidden rounded-3xl border border-slate/10 bg-paper shadow-card"
         >
           <ul className="divide-y divide-slate/10">
-            {valueStack.map((item) => (
+            {stack.map((item) => (
               <motion.li
                 key={item.label}
                 variants={fadeUp}
@@ -75,7 +79,7 @@ export function OfferStack() {
               Total value
             </span>
             <span className="font-display text-2xl font-bold text-live sm:text-3xl">
-              <StatCounter to={totalValueNumber} prefix="$" suffix="+" duration={2000} />
+              <StatCounter to={professional.totalValue} prefix="$" duration={2000} />
             </span>
           </motion.div>
         </motion.div>

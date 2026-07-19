@@ -9,8 +9,10 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { IndustryIcon } from "@/components/ui/IndustryIcon";
 import { CtaCluster } from "@/components/ui/CtaCluster";
+import { TierCard } from "@/components/ui/TierCard";
 import { MissedMoneyCalculator } from "@/components/interactive/MissedMoneyCalculator";
 import { industries, getIndustry } from "@/content/industries";
+import { INDUSTRY_TIER, getTier } from "@/content/pricing";
 
 export function generateStaticParams() {
   return industries.map((i) => ({ slug: i.slug }));
@@ -39,6 +41,8 @@ export default async function IndustryPage({
   const { slug } = await params;
   const ind = getIndustry(slug);
   if (!ind) notFound();
+
+  const recommendedTier = getTier(INDUSTRY_TIER[slug] ?? "professional");
 
   return (
     <>
@@ -104,10 +108,33 @@ export default async function IndustryPage({
         </div>
       </Section>
 
-      <Section tone="mist" innerClassName="max-w-3xl text-center">
-        <p className="text-lg text-slate">
+      {/* Recommended plan for this vertical */}
+      <Section tone="mist">
+        <SectionHeading
+          tone="light"
+          eyebrow="The right-sized plan"
+          title={
+            <>
+              Most {ind.name} choose{" "}
+              <span className="text-signal">{recommendedTier.name}</span>.
+            </>
+          }
+          intro={`Based on typical ${ind.short.toLowerCase()} call volume, ${recommendedTier.name} gives you the calls you need with room to grow — priced to the value of a booked ${ind.short.toLowerCase()} job.`}
+        />
+        <div className="mx-auto mt-12 max-w-sm">
+          <TierCard tier={recommendedTier} variant="condensed" />
+        </div>
+        <p className="mt-8 text-center text-slate">
+          <Link href="/pricing" className="font-semibold text-signal underline underline-offset-4">
+            Compare all plans →
+          </Link>
+        </p>
+      </Section>
+
+      <Section tone="ink" innerClassName="max-w-3xl text-center">
+        <p className="text-lg text-mist/70">
           Run a different business?{" "}
-          <Link href="/industries" className="font-medium text-signal underline underline-offset-4">
+          <Link href="/industries" className="font-medium text-live underline underline-offset-4">
             See every industry we serve
           </Link>
           .
