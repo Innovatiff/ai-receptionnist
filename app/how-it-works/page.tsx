@@ -59,9 +59,9 @@ export default function HowItWorksPage() {
 
       <HowItWorks />
 
-      <Section tone="light">
+      <Section tone="deep">
         <SectionHeading
-          tone="light"
+          tone="dark"
           eyebrow="Under the hood"
           title="Simple for you. Seamless for your callers."
           intro="The setup is done for you. The experience for your customers feels like calling a great front desk — one that's always open."
@@ -70,19 +70,19 @@ export default function HowItWorksPage() {
           {details.map((d) => (
             <div
               key={d.title}
-              className="flex gap-4 rounded-2xl border border-void/10 bg-paper p-6 shadow-soft"
+              className="flex gap-4 glass p-6"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet/10 text-violet">
                 <d.icon className="h-6 w-6" aria-hidden />
               </span>
               <div>
-                <h3 className="font-display text-lg font-semibold text-void-900">{d.title}</h3>
-                <p className="mt-1.5 text-[0.95rem] leading-relaxed text-void">{d.body}</p>
+                <h3 className="font-display text-lg font-semibold text-white">{d.title}</h3>
+                <p className="mt-1.5 text-[0.95rem] leading-relaxed text-haze">{d.body}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-void">
+        <p className="mt-10 text-center text-haze">
           Curious what it costs?{" "}
           <Link href="/pricing" className="font-medium text-violet underline underline-offset-4">
             See the full offer and pricing

@@ -3,10 +3,14 @@ import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
 /**
- * BOOKLEAD mark — a rounded squircle carved by four petal notches, forming a
- * four-point "signal" star at the centre. Geometric, confident, brandable at
- * 16px. Rendered as inline SVG so it stays crisp and theme-aware.
+ * BOOKLEAD mark — a squircle split into four petals by a narrow cross. Each
+ * petal rounds convexly toward the centre, so the negative space resolves into
+ * a four-point "signal" star. One petal path rotated 4× = exact symmetry, and
+ * it stays legible down to 16px.
  */
+const PETAL =
+  "M 12,3 L 22.5,3 L 22.5,12.5 A 10 10 0 0 1 12.5,22.5 L 3,22.5 L 3,12 A 9 9 0 0 1 12,3 Z";
+
 export function LogoMark({
   className,
   gradient = true,
@@ -14,25 +18,22 @@ export function LogoMark({
   className?: string;
   gradient?: boolean;
 }) {
+  const fill = gradient ? "url(#bl-mark)" : "currentColor";
   return (
     <svg viewBox="0 0 48 48" className={className} aria-hidden focusable="false">
       <defs>
-        <linearGradient id="bl-mark" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#9B80FF" />
-          <stop offset="0.55" stopColor="#7C5CFF" />
+        <linearGradient id="bl-mark" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#B9A5FF" />
+          <stop offset="0.5" stopColor="#7C5CFF" />
           <stop offset="1" stopColor="#5232C4" />
         </linearGradient>
       </defs>
-      {/*
-        Squircle with four inward arcs cut from each edge midpoint — the
-        negative space reads as a 4-point star / booking "check-in" burst.
-      */}
-      <path
-        fill={gradient ? "url(#bl-mark)" : "currentColor"}
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M17 3h14c3.9 0 6.9 0 9.2 1.2a10 10 0 0 1 4.6 4.6C46 11.1 46 14.1 46 18v12c0 3.9 0 6.9-1.2 9.2a10 10 0 0 1-4.6 4.6C37.9 45 34.9 45 31 45H17c-3.9 0-6.9 0-9.2-1.2a10 10 0 0 1-4.6-4.6C2 36.9 2 33.9 2 30V18c0-3.9 0-6.9 1.2-9.2a10 10 0 0 1 4.6-4.6C10.1 3 13.1 3 17 3Zm5.6 4.3c0 5-.3 7.9-2 9.6-1.7 1.7-4.6 2-9.6 2-1.6 0-2.7.9-2.7 2.1 0 1.2 1.1 2.1 2.7 2.1 5 0 7.9.3 9.6 2 1.7 1.7 2 4.6 2 9.6 0 1.6.9 2.7 2.1 2.7 1.2 0 2.1-1.1 2.1-2.7 0-5 .3-7.9 2-9.6 1.7-1.7 4.6-2 9.6-2 1.6 0 2.7-.9 2.7-2.1 0-1.2-1.1-2.1-2.7-2.1-5 0-7.9-.3-9.6-2-1.7-1.7-2-4.6-2-9.6 0-1.6-.9-2.7-2.1-2.7-1.2 0-2.1 1.1-2.1 2.7Z"
-      />
+      <g fill={fill}>
+        <path d={PETAL} />
+        <path d={PETAL} transform="rotate(90 24 24)" />
+        <path d={PETAL} transform="rotate(180 24 24)" />
+        <path d={PETAL} transform="rotate(270 24 24)" />
+      </g>
     </svg>
   );
 }
@@ -49,12 +50,12 @@ export function Logo({
       href="/"
       aria-label={`${site.name} home`}
       className={cn(
-        "group inline-flex items-center gap-2.5 font-display text-[1.35rem] font-bold tracking-[-0.03em]",
+        "group inline-flex items-center gap-2.5 font-display text-[1.3rem] font-bold tracking-[-0.035em]",
         tone === "dark" ? "text-white" : "text-void",
         className
       )}
     >
-      <LogoMark className="h-9 w-9 transition-transform duration-500 ease-out-expo group-hover:rotate-[90deg]" />
+      <LogoMark className="h-8 w-8 shrink-0 transition-transform duration-700 ease-out-expo group-hover:rotate-90" />
       <span className="leading-none">{site.name}</span>
     </Link>
   );

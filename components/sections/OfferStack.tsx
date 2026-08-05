@@ -19,9 +19,9 @@ import { valueStackFor, professional } from "@/content/pricing";
 export function OfferStack() {
   const stack = valueStackFor("professional");
   return (
-    <Section tone="light" id="offer">
+    <Section tone="deep" id="offer">
       <SectionHeading
-        tone="light"
+        tone="dark"
         eyebrow="Everything in Professional"
         title="Everything you get — and what it's worth."
         intro="The Professional plan, itemized. Stacked up, here's the real value."
@@ -32,9 +32,9 @@ export function OfferStack() {
         <motion.div
           variants={staggerParent(0.06)}
           {...inViewOnce}
-          className="overflow-hidden rounded-3xl border border-void/10 bg-paper shadow-card"
+          className="glass overflow-hidden"
         >
-          <ul className="divide-y divide-void/10">
+          <ul className="divide-y divide-white/[0.06]">
             {stack.map((item) => (
               <motion.li
                 key={item.label}
@@ -56,13 +56,13 @@ export function OfferStack() {
                     )}
                   </span>
                   <div>
-                    <p className="font-medium leading-snug text-void-900">{item.label}</p>
+                    <p className="font-medium leading-snug text-white">{item.label}</p>
                     {item.detail && (
-                      <p className="mt-0.5 text-sm text-void">{item.detail}</p>
+                      <p className="mt-0.5 text-sm text-haze">{item.detail}</p>
                     )}
                   </div>
                 </div>
-                <span className="shrink-0 font-mono text-sm text-void/70 line-through decoration-void/40">
+                <span className="shrink-0 font-mono text-sm text-haze/70 line-through decoration-haze/40">
                   {formatUSD(item.value)}
                 </span>
               </motion.li>
@@ -73,7 +73,7 @@ export function OfferStack() {
           <motion.div
             variants={fadeUp}
             {...inViewOnce}
-            className="flex items-center justify-between gap-4 bg-void-900 px-5 py-5 sm:px-6"
+            className="flex items-center justify-between gap-4 bg-gradient-to-r from-violet-700/40 to-violet-500/20 px-5 py-5 sm:px-6"
           >
             <span className="font-display text-lg font-semibold text-white">
               Total value
@@ -86,11 +86,11 @@ export function OfferStack() {
 
         {/* Price drop + guarantee */}
         <div className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-void/10 bg-paper p-6 shadow-card sm:p-7">
-            <PriceDrop tone="light" />
+          <div className="glass p-6 sm:p-7">
+            <PriceDrop tone="dark" />
           </div>
-          <GuaranteeBadge variant="card" tone="light" />
-          <CtaCluster tone="light" align="left" trackLabel="offer" secondaryHref="#hear-it" />
+          <GuaranteeBadge variant="card" tone="dark" />
+          <CtaCluster tone="dark" align="left" trackLabel="offer" secondaryHref="#hear-it" />
         </div>
       </div>
     </Section>

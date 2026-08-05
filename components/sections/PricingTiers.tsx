@@ -34,7 +34,7 @@ const cardVariant = {
 
 export function PricingTiers({
   variant = "condensed",
-  tone = "light",
+  tone = "deep",
   eyebrow = "Plans that scale with you",
   title = "Pick your plan. Cancel anytime.",
   intro = "Every plan includes the full setup, done for you, live in 7 days.",
@@ -42,26 +42,26 @@ export function PricingTiers({
   withHeading = true,
 }: {
   variant?: "condensed" | "full";
-  tone?: "light" | "deep";
+  tone?: "deep" | "void";
   eyebrow?: string;
   title?: string;
   intro?: string;
   showHelpLine?: boolean;
   withHeading?: boolean;
 }) {
-  const light = tone === "light";
+  
   return (
     <Section tone={tone} id="pricing-tiers">
       {withHeading && (
         <SectionHeading
-          tone={light ? "light" : "dark"}
+          tone="dark"
           eyebrow={eyebrow}
           title={title}
           intro={intro}
         />
       )}
 
-      <div className="mx-auto mt-14 grid max-w-6xl items-center gap-6 pt-4 lg:grid-cols-3">
+      <div className="mx-auto mt-14 grid max-w-6xl items-stretch gap-6 pt-4 lg:grid-cols-3">
         {TIERS.map((tier) => (
           <motion.div
             key={tier.id}
@@ -81,13 +81,13 @@ export function PricingTiers({
       </div>
 
       {showHelpLine && (
-        <p className={cn("mt-10 text-center", light ? "text-void" : "text-cloud/60")}>
+        <p className={cn("mt-10 text-center", "text-haze")}>
           Not sure which fits?{" "}
           <Link
             href="/demo"
             className={cn(
               "font-semibold underline underline-offset-4",
-              light ? "text-violet" : "text-mint"
+              "text-violet-300"
             )}
           >
             Book the demo — I&apos;ll tell you straight.

@@ -109,9 +109,9 @@ export default async function IndustryPage({
       </Section>
 
       {/* Recommended plan for this vertical */}
-      <Section tone="light">
+      <Section tone="deep">
         <SectionHeading
-          tone="light"
+          tone="dark"
           eyebrow="The right-sized plan"
           title={
             <>
@@ -124,7 +124,7 @@ export default async function IndustryPage({
         <div className="mx-auto mt-12 max-w-sm">
           <TierCard tier={recommendedTier} variant="condensed" />
         </div>
-        <p className="mt-8 text-center text-void">
+        <p className="mt-8 text-center text-haze">
           <Link href="/pricing" className="font-semibold text-violet underline underline-offset-4">
             Compare all plans →
           </Link>

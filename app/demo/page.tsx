@@ -36,14 +36,13 @@ export default function DemoPage() {
     <>
       <PageHero
         pill="I'll answer a live call for you"
-        eyebrow="Book your free demo"
-        title={
+                title={
           <>
             Hear it answer a live call.{" "}
             <span className="text-gradient">Then decide.</span>
           </>
         }
-        intro={site.cta.primarySupport}
+        intro="A 15-minute, no-pressure walkthrough. We'll have your AI receptionist answer a real call so you know exactly what your customers will hear."
       />
 
       <section className="relative bg-void-900 pb-20 sm:pb-24">

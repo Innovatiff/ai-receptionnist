@@ -32,9 +32,9 @@ const cards = [
 
 export function SolutionCards() {
   return (
-    <Section tone="light" id="solution">
+    <Section tone="deep" id="solution">
       <SectionHeading
-        tone="light"
+        tone="dark"
         eyebrow="The plug for your leaky bucket"
         title="Never sleeps. Never quits. Never misses."
         intro="One system that answers, books, and follows up — 24/7."
@@ -49,19 +49,19 @@ export function SolutionCards() {
           <motion.div
             key={c.title}
             variants={revealScale}
-            className="group flex flex-col gap-4 rounded-2xl border border-void/10 bg-paper p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card hover:border-violet/30"
+            className="glass card-hover group flex flex-col gap-4 p-6 sm:p-7"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet/10 text-violet transition-all duration-300 group-hover:scale-110 group-hover:bg-violet group-hover:text-white">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/12 text-violet-300 ring-1 ring-violet-400/20 transition-all duration-300 group-hover:scale-110 group-hover:bg-violet-500 group-hover:text-white">
               <c.icon className="h-6 w-6" aria-hidden />
             </span>
-            <h3 className="font-display text-lg font-semibold text-void-900">{c.title}</h3>
-            <p className="text-[0.95rem] leading-relaxed text-void">{c.body}</p>
+            <h3 className="font-display text-lg font-semibold text-white">{c.title}</h3>
+            <p className="text-[0.95rem] leading-relaxed text-haze">{c.body}</p>
           </motion.div>
         ))}
       </motion.div>
 
       <div className="mt-14">
-        <CtaCluster tone="light" trackLabel="solution" secondaryHref="#hear-it" />
+        <CtaCluster tone="dark" trackLabel="solution" secondaryHref="#hear-it" />
       </div>
     </Section>
   );

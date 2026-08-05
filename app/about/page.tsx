@@ -46,8 +46,8 @@ export default function AboutPage() {
         intro={`${site.bigIdea} That one idea is the whole reason ${site.name} exists.`}
       />
 
-      <Section tone="light" innerClassName="max-w-3xl">
-        <div className="prose-invert space-y-5 text-lg leading-relaxed text-void-800">
+      <Section tone="deep" innerClassName="max-w-3xl">
+        <div className="space-y-6 text-body-lg leading-relaxed text-haze">
           <p>
             Here&apos;s the thing nobody tells you when you start a local business: the
             phone is your lifeline, and it rings at the worst possible times. When
@@ -68,11 +68,11 @@ export default function AboutPage() {
             thing I wished they had — an AI receptionist that answers every call, books
             the job, and texts the caller back. Done for you. Live in a week.
           </p>
-          <p className="font-display text-xl font-semibold text-void-900">
+          <p className="font-display text-xl font-semibold text-white">
             You never miss another call. You never lose another customer. That&apos;s it.
             That&apos;s the whole promise.
           </p>
-          <p className="text-void">
+          <p className="text-haze">
             — {site.founder.name}, {site.founder.role}
           </p>
         </div>
@@ -83,13 +83,13 @@ export default function AboutPage() {
           {values.map((v) => (
             <div
               key={v.title}
-              className="rounded-2xl border border-void-700/60 bg-void-800/40 p-6"
+              className="glass card-hover p-6 sm:p-7"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet/10 text-violet">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/12 text-violet-300 ring-1 ring-violet-400/20">
                 <v.icon className="h-6 w-6" aria-hidden />
               </span>
               <h2 className="mt-4 font-display text-lg font-semibold text-white">{v.title}</h2>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-cloud/65">{v.body}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-haze">{v.body}</p>
             </div>
           ))}
         </div>

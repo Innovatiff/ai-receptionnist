@@ -49,9 +49,9 @@ export default function ResultsPage() {
       </Section>
 
       {/* Case studies */}
-      <Section tone="light">
+      <Section tone="deep">
         <SectionHeading
-          tone="light"
+          tone="dark"
           eyebrow="Case studies"
           title="Before and after, by the numbers."
         />
@@ -59,28 +59,28 @@ export default function ResultsPage() {
           {caseStudies.map((c) => (
             <div
               key={c.business}
-              className="grid gap-6 rounded-3xl border border-void/10 bg-paper p-6 shadow-soft sm:p-8 lg:grid-cols-[0.8fr_1.2fr]"
+              className="grid gap-6 glass p-6 sm:p-8 lg:grid-cols-[0.8fr_1.2fr]"
             >
               <div>
                 <span className="inline-block rounded-full bg-violet/10 px-3 py-1 text-xs font-semibold text-violet">
                   {c.industry}
                 </span>
-                <h3 className="mt-3 font-display text-xl font-bold text-void-900">{c.business}</h3>
-                <span className="mt-2 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-[0.6rem] font-medium uppercase tracking-wide text-amber-600">
+                <h3 className="mt-3 font-display text-xl font-bold text-white">{c.business}</h3>
+                <span className="mt-2 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-[0.6rem] font-medium uppercase tracking-wide text-amber-300/80">
                   Placeholder
                 </span>
               </div>
               <div className="space-y-3">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-ember">The challenge</p>
-                  <p className="mt-1 text-[0.95rem] leading-relaxed text-void">{c.challenge}</p>
+                  <p className="mt-1 text-[0.95rem] leading-relaxed text-haze">{c.challenge}</p>
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-violet">What changed</p>
-                  <p className="mt-1 text-[0.95rem] leading-relaxed text-void">{c.result}</p>
+                  <p className="mt-1 text-[0.95rem] leading-relaxed text-haze">{c.result}</p>
                 </div>
-                <div className="rounded-xl bg-cloud p-4">
-                  <p className="text-sm font-medium text-void-900">{c.stat}</p>
+                <div className="rounded-xl border border-white/[0.07] bg-white/[0.04] p-4">
+                  <p className="text-sm font-medium text-white">{c.stat}</p>
                 </div>
               </div>
             </div>

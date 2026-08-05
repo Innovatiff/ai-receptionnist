@@ -14,10 +14,9 @@ import {
 import { site } from "@/content/site";
 
 /**
- * A single pricing tier card. The "MOST POPULAR" tier (Professional) renders as
- * an elevated dark card so it's the obvious choice; the others are clean light
- * cards. Calls-first framing (never "unlimited"). Used condensed on the home
- * page and full on /pricing.
+ * Pricing tier card. Dark-first: standard tiers are glass, the MOST POPULAR
+ * tier is elevated with a violet wash, ember ribbon and ember CTA so it's the
+ * obvious choice. Calls-first framing (never "unlimited").
  */
 export function TierCard({
   tier,
@@ -37,41 +36,39 @@ export function TierCard({
       className={cn(
         "relative flex flex-col rounded-3xl p-6 sm:p-7",
         featured
-          ? "border border-ember/40 bg-void-900 text-cloud shadow-[0_30px_80px_-24px_rgba(255,122,89,0.4)] ring-1 ring-ember/20"
-          : "border border-void/12 bg-paper text-void-900 shadow-soft",
+          ? "border border-violet-400/40 bg-gradient-to-b from-violet-500/[0.16] to-violet-700/[0.05] shadow-violet ring-1 ring-white/[0.06] backdrop-blur-xl"
+          : "border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl transition-colors duration-300 hover:border-white/15",
         className
       )}
     >
       {tier.badge && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-ember to-ember-deep px-3.5 py-1 text-xs font-bold uppercase tracking-wide text-void shadow-ember">
-            <Star className="h-3.5 w-3.5 fill-current" aria-hidden />
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-ember-glow to-ember-deep px-3.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-wider text-void shadow-ember">
+            <Star className="h-3 w-3 fill-current" aria-hidden />
             {tier.badge}
           </span>
         </div>
       )}
 
-      {/* Header */}
-      <div className={cn(tier.badge && "mt-2")}>
-        <h3 className={cn("font-display text-xl font-bold", featured ? "text-white" : "text-void-900")}>
-          {tier.name}
-        </h3>
-        <p className={cn("mt-1 text-sm", featured ? "text-cloud/55" : "text-void")}>
-          Best for {tier.bestFor.toLowerCase()}
-        </p>
+      <div className={cn(tier.badge && "mt-3")}>
+        <h3 className="font-display text-xl font-bold text-white">{tier.name}</h3>
+        <p className="mt-1.5 text-sm text-haze">Best for {tier.bestFor.toLowerCase()}</p>
       </div>
 
       {/* Price */}
-      <div className="mt-5">
-        <div className="flex items-baseline gap-1">
-          <span className={cn("font-display text-4xl font-bold", featured ? "text-white" : "text-void-900")}>
+      <div className="mt-6">
+        <div className="flex items-baseline gap-1.5">
+          <span
+            className={cn(
+              "font-display text-5xl font-bold",
+              featured ? "text-gradient" : "text-white"
+            )}
+          >
             {monthlyLabel(tier)}
           </span>
-          <span className={cn("text-base font-medium", featured ? "text-cloud/55" : "text-void")}>
-            /month
-          </span>
+          <span className="text-base font-medium text-haze">/month</span>
         </div>
-        <p className={cn("mt-1 text-sm", featured ? "text-cloud/55" : "text-void")}>
+        <p className="mt-1.5 text-sm text-haze">
           + ${tier.setup.toLocaleString()} one-time setup
         </p>
       </div>
@@ -79,28 +76,26 @@ export function TierCard({
       {/* Included calls — calls-first */}
       <div
         className={cn(
-          "mt-5 flex items-start gap-2.5 rounded-xl border p-3.5",
-          featured ? "border-mint/25 bg-mint/[0.06]" : "border-violet/15 bg-violet/[0.04]"
+          "mt-6 flex items-start gap-3 rounded-2xl border p-4",
+          featured ? "border-violet-400/25 bg-violet-500/[0.1]" : "border-white/[0.07] bg-white/[0.03]"
         )}
       >
-        <Phone className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-mint" : "text-violet")} aria-hidden />
+        <Phone
+          className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-violet-300" : "text-haze")}
+          aria-hidden
+        />
         <div>
-          <p className={cn("text-sm font-semibold", featured ? "text-white" : "text-void-900")}>
-            {callsLabel(tier)} included
-          </p>
-          <p className={cn("text-xs", featured ? "text-cloud/50" : "text-void")}>
-            {minutesLabel(tier)}
-          </p>
+          <p className="text-sm font-semibold text-white">{callsLabel(tier)} included</p>
+          <p className="text-xs text-haze">{minutesLabel(tier)}</p>
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="mt-5">
+      <div className="mt-6">
         <Button
           href={site.cta.href}
           size="md"
           withArrow
-          variant={featured ? "primary" : "dark"}
+          variant={featured ? "primary" : "ghost"}
           trackLabel={`tier_${tier.id}`}
           className="w-full"
         >
@@ -108,34 +103,32 @@ export function TierCard({
         </Button>
       </div>
 
-      {/* Features */}
-      <ul className="mt-6 space-y-2.5">
+      <ul className="mb-7 mt-7 space-y-3">
         {features.map((f) => (
           <li key={f} className="flex items-start gap-2.5 text-sm">
-            <Check className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-mint" : "text-violet")} aria-hidden />
-            <span className={featured ? "text-cloud/85" : "text-void-800"}>{f}</span>
+            <Check
+              className={cn(
+                "mt-0.5 h-4 w-4 shrink-0",
+                featured ? "text-violet-300" : "text-mint"
+              )}
+              aria-hidden
+            />
+            <span className="text-cloud/85">{f}</span>
           </li>
         ))}
         {moreCount > 0 && (
-          <li className={cn("pl-6 text-sm font-medium", featured ? "text-mint" : "text-violet")}>
-            + {moreCount} more
-          </li>
+          <li className="pl-6 text-sm font-semibold text-violet-300">+ {moreCount} more</li>
         )}
       </ul>
 
       {variant === "full" && (
-        <p
-          className={cn(
-            "mt-5 rounded-xl border border-dashed p-3 text-xs leading-relaxed",
-            featured ? "border-void-700 text-cloud/55" : "border-void/20 text-void"
-          )}
-        >
+        <p className="mt-6 rounded-2xl border border-dashed border-white/10 p-3.5 text-xs leading-relaxed text-haze">
           {extraMinutesNote(tier)}
         </p>
       )}
 
-      <div className="mt-6 border-t pt-4 border-current/10">
-        <GuaranteeBadge variant="mini" tone={featured ? "dark" : "light"} />
+      <div className="mt-auto border-t border-white/[0.07] pt-5">
+        <GuaranteeBadge variant="mini" tone="dark" />
       </div>
     </div>
   );

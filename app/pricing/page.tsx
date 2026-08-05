@@ -41,7 +41,7 @@ export default function PricingPage() {
       {/* Full tier cards */}
       <PricingTiers
         variant="full"
-        tone="light"
+        tone="deep"
         eyebrow="Three plans, one finished front desk"
         title="Pick your plan. Cancel anytime."
         intro="Every plan is built for your business and live in 7 days. Extra minutes are billed at the plain rate on your plan — no surprises."
@@ -68,17 +68,17 @@ export default function PricingPage() {
       <ComparisonTable withHeading withCta={false} />
 
       {/* Scarcity + pricing FAQ */}
-      <Section tone="light">
+      <Section tone="deep">
         <div className="mx-auto max-w-3xl">
-          <ScarcityNote tone="light" className="mb-12" />
+          <ScarcityNote tone="dark" className="mb-12" />
           <SectionHeading
-            tone="light"
+            tone="dark"
             eyebrow="Pricing questions"
             title="Straight answers on price."
           />
           <div className="mt-8">
             <Accordion
-              tone="light"
+              tone="dark"
               items={pricingFaqs.map((f) => ({ q: f.q, a: f.a }))}
             />
           </div>

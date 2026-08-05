@@ -15,13 +15,13 @@ export function LegalLayout({
 }) {
   return (
     <>
-      <PageHero eyebrow="Legal" title={title} intro={intro} showWave={false} />
-      <Section tone="light" innerClassName="max-w-3xl">
-        <p className="mb-8 rounded-xl border border-amber-400/40 bg-amber-400/10 px-4 py-3 text-sm text-amber-700">
-          Template only — replace this with your reviewed legal copy before launch.
-          Last updated: {updated}.
+      <PageHero eyebrow="Legal" title={title} intro={intro} />
+      <Section tone="deep" innerClassName="max-w-3xl">
+        <p className="mb-10 rounded-2xl border border-amber-400/25 bg-amber-400/[0.07] px-5 py-4 text-sm text-amber-200/85">
+          Template only — replace with your reviewed legal copy before launch. Last
+          updated: {updated}.
         </p>
-        <div className="space-y-8 text-void-800 [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-void-900 [&_h2]:mb-2 [&_p]:leading-relaxed [&_p]:text-void [&_li]:text-void [&_ul]:mt-2 [&_ul]:space-y-1.5 [&_ul]:list-disc [&_ul]:pl-5">
+        <div className="space-y-10 [&_a]:text-violet-300 [&_h2]:mb-3 [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-white [&_li]:text-haze [&_p]:leading-relaxed [&_p]:text-haze [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
           {children}
         </div>
       </Section>
