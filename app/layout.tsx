@@ -12,9 +12,12 @@ import "./globals.css";
 export const metadata: Metadata = defaultMetadata;
 
 export const viewport: Viewport = {
-  themeColor: "#0B1120",
+  themeColor: "#08060F",
   width: "device-width",
   initialScale: 1,
+  // Required for env(safe-area-inset-*) to report real values on iPhone —
+  // without it the sticky bottom CTA sits under the home indicator.
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -24,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
-      <body className="min-h-dvh bg-void text-cloud">
+      {/* Bottom padding clears the sticky mobile CTA bar (incl. the iPhone
+          home indicator) for the whole page — footer included. */}
+      <body className="min-h-dvh bg-void pb-[calc(5.25rem+env(safe-area-inset-bottom))] text-cloud lg:pb-0">
         <JsonLd data={localBusinessJsonLd()} />
         <a
           href="#main"
@@ -34,7 +39,7 @@ export default function RootLayout({
         </a>
         <SmoothScroll>
           <Header />
-          <main id="main" className="pb-20 lg:pb-0">
+          <main id="main">
             {children}
           </main>
           <Footer />

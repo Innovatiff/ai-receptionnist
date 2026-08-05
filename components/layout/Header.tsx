@@ -44,8 +44,11 @@ export function Header() {
         <div
           className={cn(
             "flex items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-all duration-500 ease-out-expo sm:px-5 sm:py-3",
-            scrolled
-              ? "border border-white/[0.08] bg-void-900/80 shadow-card lg:backdrop-blur-xl"
+            scrolled || open
+              ? // Solid on phones: this bar floats over scrolling content and
+                // there's no backdrop-blur there, so a translucent fill would
+                // let the page show straight through it.
+                "border border-white/[0.1] bg-void-800 shadow-card lg:bg-void-900/80 lg:backdrop-blur-xl"
               : "border border-transparent bg-transparent"
           )}
         >
@@ -103,7 +106,12 @@ export function Header() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="container-page mt-3 lg:hidden"
           >
-            <nav aria-label="Mobile" className="glass-strong flex flex-col gap-1 p-4">
+            {/* Solid panel — a glass fill with no blur behind it is unreadable
+                over the page content it covers. */}
+            <nav
+              aria-label="Mobile"
+              className="flex flex-col gap-1 rounded-3xl border border-white/10 bg-void-800 p-4 shadow-card"
+            >
               {[...primaryNav, ...extraNav].map((item) => (
                 <Link
                   key={item.href}
