@@ -3,10 +3,7 @@ import { DemoButton } from "./DemoButton";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
-/**
- * The one CTA, everywhere: primary "Book My Free Demo" + a short support line,
- * with an optional animated "Hear a 30-second demo" secondary.
- */
+/** One CTA, everywhere: primary + optional animated demo secondary. */
 export function CtaCluster({
   align = "center",
   tone = "dark",
@@ -32,8 +29,8 @@ export function CtaCluster({
         className
       )}
     >
-      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-        <Button href={site.cta.href} size="lg" withArrow trackLabel={trackLabel}>
+      <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
+        <Button href={site.cta.href} size="xl" withArrow trackLabel={trackLabel}>
           {site.cta.primary}
         </Button>
         {showSecondary && (
@@ -44,7 +41,7 @@ export function CtaCluster({
         <p
           className={cn(
             "text-sm",
-            tone === "dark" ? "text-mist/55" : "text-slate",
+            tone === "dark" ? "text-haze/80" : "text-void/55",
             align === "center" && "mx-auto"
           )}
         >

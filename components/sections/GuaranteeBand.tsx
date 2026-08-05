@@ -10,10 +10,10 @@ import { site } from "@/content/site";
 /** 4.7 The Guarantee — its own bold band. Full-width, high-contrast. */
 export function GuaranteeBand() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-signal-700 via-signal to-signal-800">
-      <div className="signal-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+    <section className="relative overflow-hidden bg-gradient-to-br from-violet-700 via-violet to-violet-800">
+      <div className="grid-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden />
       <div
-        className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-live/25 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-mint/25 blur-3xl"
         aria-hidden
       />
       <div className="container-page relative py-20 sm:py-24">
@@ -28,7 +28,7 @@ export function GuaranteeBand() {
           >
             <ShieldCheck className="h-8 w-8" aria-hidden />
           </motion.span>
-          <motion.p variants={fadeUp} className="eyebrow mt-6 text-live-soft">
+          <motion.p variants={fadeUp} className="eyebrow mt-6 text-mint">
             {primaryGuarantee.name}
           </motion.p>
           <motion.h2

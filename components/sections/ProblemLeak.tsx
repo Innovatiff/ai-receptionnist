@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link as LinkIcon, PhoneOff, MoonStar, Users } from "lucide-react";
+import { PhoneOff, MoonStar, Users, TrendingDown } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Button } from "@/components/ui/Button";
-import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
+import { Aurora } from "@/components/ui/Aurora";
+import { revealScale, staggerParent, inViewSoft } from "@/lib/animations";
 import { site } from "@/content/site";
 
 const moments = [
@@ -29,78 +30,88 @@ const moments = [
 
 export function ProblemLeak() {
   return (
-    <Section tone="ink-deep" id="problem">
-      <div className="signal-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden />
-      <div className="relative grid gap-14 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+    <Section tone="void" id="problem">
+      <Aurora intensity="soft" />
+      <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-16">
         <div>
           <SectionHeading
             align="left"
-            eyebrow="The hidden leak in your business"
+            eyebrow="The hidden leak"
             title={
               <>
                 Every missed call is a customer{" "}
-                <span className="text-pulse">calling your competitor.</span>
+                <span className="bg-gradient-to-r from-ember-soft to-ember-deep bg-clip-text text-transparent">
+                  calling your competitor.
+                </span>
               </>
             }
-            intro="A large share of calls to local businesses go unanswered. Most callers who hit voicemail just hang up and dial the next name. No second chance."
+            intro="A large share of calls to local businesses go unanswered. Most callers who hit voicemail just hang up and dial the next name."
           />
 
           <motion.div
-            variants={staggerParent(0.12)}
-            {...inViewOnce}
-            className="mt-8 space-y-4"
+            variants={staggerParent(0.1)}
+            {...inViewSoft}
+            className="mt-9 space-y-3.5"
           >
             {moments.map((m) => (
               <motion.div
                 key={m.title}
-                variants={fadeUp}
-                className="flex gap-4 rounded-2xl border border-ink-700/60 bg-ink-800/40 p-5"
+                variants={revealScale}
+                className="glass card-hover flex gap-4 p-5"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pulse/10 text-pulse">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-ember/12 text-ember ring-1 ring-ember/20">
                   <m.icon className="h-5 w-5" aria-hidden />
                 </span>
                 <div>
                   <p className="font-display font-semibold text-white">{m.title}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-mist/65">{m.body}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-haze">{m.body}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="mt-8">
-            <Button href={site.cta.href} withArrow trackLabel="problem">
+          <div className="mt-9">
+            <Button href={site.cta.href} size="lg" withArrow trackLabel="problem">
               {site.cta.primary}
             </Button>
           </div>
         </div>
 
-        {/* Money-lost counter */}
-        <motion.div variants={fadeUp} {...inViewOnce} className="lg:pl-6">
-          <div className="relative overflow-hidden rounded-3xl border border-pulse/25 bg-gradient-to-br from-pulse/[0.1] to-ink-900 p-8 text-center shadow-card">
+        {/* Money counter */}
+        <motion.div variants={revealScale} {...inViewSoft}>
+          <div className="glass-strong relative overflow-hidden p-8 text-center sm:p-10">
             <div
-              className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-pulse/20 blur-3xl"
+              className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-ember/25 blur-3xl"
               aria-hidden
             />
-            <p className="eyebrow text-pulse">The leaky bucket, in dollars</p>
-            <p className="mt-6 font-display text-5xl font-bold text-white sm:text-6xl">
-              <span className="text-pulse">$</span>
-              <StatCounter to={4800} duration={2000} />
+            <p className="relative inline-flex items-center gap-2 rounded-full border border-ember/25 bg-ember/10 px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ember">
+              <TrendingDown className="h-3.5 w-3.5" aria-hidden />
+              The leak, in dollars
             </p>
-            <p className="mt-2 text-sm text-mist/60">
+            <p className="relative mt-7 font-display text-6xl font-bold text-white sm:text-7xl">
+              <span className="bg-gradient-to-br from-ember-soft to-ember-deep bg-clip-text text-transparent">
+                $<StatCounter to={4800} duration={2000} />
+              </span>
+            </p>
+            <p className="relative mt-3 text-sm text-haze">
               estimated monthly leak for a typical local business
             </p>
-            <div className="mt-6 rounded-xl border border-ink-700/60 bg-ink-950/40 p-4 text-left text-sm text-mist/65">
-              <p className="font-semibold text-white">Your phone is a leaky bucket.</p>
-              <p className="mt-1">
+            <div className="relative mt-8 rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5 text-left">
+              <p className="font-display font-semibold text-white">
+                Your phone is a leaky bucket.
+              </p>
+              <p className="mt-1.5 text-sm text-haze">
                 See what you could recover with the{" "}
-                <a href="/calculator" className="text-live underline underline-offset-4 hover:text-live-soft">
+                <a
+                  href="/calculator"
+                  className="text-violet-300 underline underline-offset-4 hover:text-white"
+                >
                   Missed-Money Calculator
                 </a>
                 .
               </p>
             </div>
-            <p className="mt-4 flex items-center justify-center gap-2 text-xs text-mist/40">
-              <LinkIcon className="h-3.5 w-3.5" aria-hidden />
+            <p className="relative mt-5 text-[0.7rem] text-haze/50">
               Illustrative estimate — not a claim about your business.
             </p>
           </div>

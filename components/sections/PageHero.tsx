@@ -23,10 +23,10 @@ export function PageHero({
   showWave?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink-950 pt-[calc(var(--header-h)+3.5rem)] pb-16 sm:pb-20">
-      <div className="signal-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden />
+    <section className="relative overflow-hidden bg-void pt-[calc(var(--header-h)+3.5rem)] pb-16 sm:pb-20">
+      <div className="grid-dots pointer-events-none absolute inset-0 opacity-60" aria-hidden />
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2 glow-signal opacity-40 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2 bg-violet-glow opacity-40 blur-3xl"
         aria-hidden
       />
       <div className="container-page relative">
@@ -47,7 +47,7 @@ export function PageHero({
             </motion.div>
           )}
           {eyebrow && (
-            <motion.p variants={fadeUp} className="eyebrow mt-6 text-live">
+            <motion.p variants={fadeUp} className="eyebrow mt-6 text-mint">
               {eyebrow}
             </motion.p>
           )}
@@ -60,7 +60,7 @@ export function PageHero({
           {intro && (
             <motion.p
               variants={fadeUp}
-              className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist/70"
+              className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-cloud/70"
             >
               {intro}
             </motion.p>

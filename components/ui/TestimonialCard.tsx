@@ -21,19 +21,19 @@ export function TestimonialCard({
       className={cn(
         "flex h-full flex-col gap-5 rounded-2xl border p-6",
         tone === "dark"
-          ? "border-ink-700/70 bg-ink-800/60"
-          : "border-slate/10 bg-paper shadow-soft",
+          ? "border-void-700/70 bg-void-800/60"
+          : "border-void/10 bg-paper shadow-soft",
         className
       )}
     >
       <Quote
-        className={cn("h-7 w-7", tone === "dark" ? "text-signal-400" : "text-signal")}
+        className={cn("h-7 w-7", tone === "dark" ? "text-violet-400" : "text-violet")}
         aria-hidden
       />
       <blockquote
         className={cn(
           "flex-1 text-[1.02rem] leading-relaxed",
-          tone === "dark" ? "text-mist/85" : "text-ink-800"
+          tone === "dark" ? "text-cloud/85" : "text-void-800"
         )}
       >
         “{t.quote}”
@@ -43,18 +43,18 @@ export function TestimonialCard({
           className={cn(
             "flex h-11 w-11 items-center justify-center rounded-full font-display text-sm font-semibold",
             tone === "dark"
-              ? "bg-signal/15 text-signal-300"
-              : "bg-signal/10 text-signal"
+              ? "bg-violet/15 text-violet-300"
+              : "bg-violet/10 text-violet"
           )}
           aria-hidden
         >
           {t.initials}
         </span>
         <div className="text-sm">
-          <div className={cn("font-semibold", tone === "dark" ? "text-white" : "text-ink-900")}>
+          <div className={cn("font-semibold", tone === "dark" ? "text-white" : "text-void-900")}>
             {t.name}
           </div>
-          <div className={tone === "dark" ? "text-mist/60" : "text-slate"}>
+          <div className={tone === "dark" ? "text-cloud/60" : "text-void"}>
             {t.business} · {t.location}
           </div>
         </div>

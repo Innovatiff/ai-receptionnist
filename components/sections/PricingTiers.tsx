@@ -34,7 +34,7 @@ const cardVariant = {
 
 export function PricingTiers({
   variant = "condensed",
-  tone = "mist",
+  tone = "light",
   eyebrow = "Plans that scale with you",
   title = "Pick your plan. Cancel anytime.",
   intro = "Every plan includes the full setup, done for you, live in 7 days.",
@@ -42,14 +42,14 @@ export function PricingTiers({
   withHeading = true,
 }: {
   variant?: "condensed" | "full";
-  tone?: "mist" | "ink-deep";
+  tone?: "light" | "deep";
   eyebrow?: string;
   title?: string;
   intro?: string;
   showHelpLine?: boolean;
   withHeading?: boolean;
 }) {
-  const light = tone === "mist";
+  const light = tone === "light";
   return (
     <Section tone={tone} id="pricing-tiers">
       {withHeading && (
@@ -81,13 +81,13 @@ export function PricingTiers({
       </div>
 
       {showHelpLine && (
-        <p className={cn("mt-10 text-center", light ? "text-slate" : "text-mist/60")}>
+        <p className={cn("mt-10 text-center", light ? "text-void" : "text-cloud/60")}>
           Not sure which fits?{" "}
           <Link
             href="/demo"
             className={cn(
               "font-semibold underline underline-offset-4",
-              light ? "text-signal" : "text-live"
+              light ? "text-violet" : "text-mint"
             )}
           >
             Book the demo — I&apos;ll tell you straight.

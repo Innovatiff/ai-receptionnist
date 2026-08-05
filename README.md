@@ -1,12 +1,12 @@
-# Novex AI — AI Receptionist Sales Site
+# Booklead — AI Receptionist Sales Site
 
-A high-conversion marketing site for **Novex AI**, a done-for-you agency that
+A high-conversion marketing site for **Booklead**, a done-for-you agency that
 builds each client a *custom, white-labeled* AI receptionist + booking system
 ("The 24/7 Booking Machine") — trained on their business, answering as their
 business, with its own name. Built to a Hormozi grand-slam-offer + PAS structure
 with a signature "Live Line" design direction.
 
-> **Positioning:** Novex AI is the company. What each client receives is a
+> **Positioning:** Booklead is the company. What each client receives is a
 > tailored AI (its own name, e.g. "Ava · Brightwater Dental") and booking
 > software set up around their workflow. The hero call card and the
 > "Your AI, your name" section (`components/sections/TailoredSection.tsx`)

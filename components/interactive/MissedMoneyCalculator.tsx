@@ -74,19 +74,19 @@ export function MissedMoneyCalculator({
         className={cn(
           "rounded-3xl border p-6 sm:p-8",
           darkTone
-            ? "border-ink-700/70 bg-ink-800/50"
-            : "border-slate/10 bg-paper shadow-card"
+            ? "border-void-700/70 bg-void-800/50"
+            : "border-void/10 bg-paper shadow-card"
         )}
       >
         <h3
           className={cn(
             "font-display text-lg font-semibold",
-            darkTone ? "text-white" : "text-ink-900"
+            darkTone ? "text-white" : "text-void-900"
           )}
         >
           Your numbers
         </h3>
-        <p className={cn("mt-1 text-sm", darkTone ? "text-mist/55" : "text-slate")}>
+        <p className={cn("mt-1 text-sm", darkTone ? "text-cloud/55" : "text-void")}>
           Drag the sliders. Estimates only — tune them to match your business.
         </p>
 
@@ -154,18 +154,18 @@ export function MissedMoneyCalculator({
           initial={{ opacity: 0.5, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-3xl border border-pulse/30 bg-gradient-to-br from-pulse/[0.12] to-ink-900 p-6 sm:p-8"
+          className="rounded-3xl border border-ember/30 bg-gradient-to-br from-ember/[0.12] to-void-900 p-6 sm:p-8"
         >
-          <p className="flex items-center gap-2 text-sm font-medium text-pulse">
+          <p className="flex items-center gap-2 text-sm font-medium text-ember">
             <TrendingDown className="h-4 w-4" aria-hidden />
             Leaking through missed calls
           </p>
           <p className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
             {formatUSD(lostPerMonth)}
-            <span className="text-lg font-medium text-mist/60">/month</span>
+            <span className="text-lg font-medium text-cloud/60">/month</span>
           </p>
-          <p className="mt-2 text-mist/70">
-            ≈ <span className="font-semibold text-pulse">{formatUSD(lostPerYear)}</span> a
+          <p className="mt-2 text-cloud/70">
+            ≈ <span className="font-semibold text-ember">{formatUSD(lostPerYear)}</span> a
             year — from roughly {Math.round(missedCallsPerMonth)} missed calls a month.
           </p>
         </motion.div>
@@ -175,28 +175,28 @@ export function MissedMoneyCalculator({
           initial={{ opacity: 0.5, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-3xl border border-live/30 bg-gradient-to-br from-live/[0.1] to-ink-900 p-6 sm:p-8"
+          className="rounded-3xl border border-mint/30 bg-gradient-to-br from-mint/[0.1] to-void-900 p-6 sm:p-8"
         >
-          <p className="flex items-center gap-2 text-sm font-medium text-live">
+          <p className="flex items-center gap-2 text-sm font-medium text-mint">
             <TrendingUp className="h-4 w-4" aria-hidden />
             Recoverable by answering them (conservative)
           </p>
           <p className="mt-3 font-display text-4xl font-bold text-white sm:text-5xl">
             {formatUSD(recoverablePerMonth)}
-            <span className="text-lg font-medium text-mist/60">/month</span>
+            <span className="text-lg font-medium text-cloud/60">/month</span>
           </p>
-          <p className="mt-2 text-mist/70">
+          <p className="mt-2 text-cloud/70">
             That&apos;s money your AI receptionist could put back on the calendar —
             from $297/month.
           </p>
         </motion.div>
 
-        <div className="rounded-2xl border border-ink-700/60 bg-ink-950/40 p-5">
+        <div className="rounded-2xl border border-void-700/60 bg-void/40 p-5">
           <button
             type="button"
             onClick={() => setShowMath((v) => !v)}
             aria-expanded={showMath}
-            className="flex w-full items-center justify-between text-sm font-medium text-mist/70 hover:text-white"
+            className="flex w-full items-center justify-between text-sm font-medium text-cloud/70 hover:text-white"
           >
             Show the math
             <ChevronDown
@@ -205,17 +205,17 @@ export function MissedMoneyCalculator({
             />
           </button>
           {showMath && (
-            <div className="mt-3 space-y-1.5 font-mono text-xs leading-relaxed text-mist/55">
+            <div className="mt-3 space-y-1.5 font-mono text-xs leading-relaxed text-cloud/55">
               <p>missed calls/mo = {callsPerWeek} × {missedPct}% × {WEEKS_PER_MONTH} = {Math.round(missedCallsPerMonth)}</p>
               <p>lost bookings/mo = {Math.round(missedCallsPerMonth)} × {closeRate}% = {Math.round(missedCallsPerMonth * (closeRate / 100))}</p>
               <p>leaking/mo = lost bookings × {formatUSD(customerValue)} = {formatUSD(lostPerMonth)}</p>
               <p>recoverable/mo = leaking × {RECOVERY_FACTOR} = {formatUSD(recoverablePerMonth)}</p>
-              <p className="pt-1 text-mist/40">All figures are estimates, not guarantees.</p>
+              <p className="pt-1 text-cloud/40">All figures are estimates, not guarantees.</p>
             </div>
           )}
         </div>
 
-        <div className="flex flex-col items-start gap-4 rounded-3xl border border-live/20 bg-ink-900/60 p-6">
+        <div className="flex flex-col items-start gap-4 rounded-3xl border border-mint/20 bg-void-900/60 p-6">
           <Button
             href={site.cta.href}
             size="lg"

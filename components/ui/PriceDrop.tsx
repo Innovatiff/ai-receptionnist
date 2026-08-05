@@ -20,9 +20,9 @@ export function PriceDrop({
   tone?: "dark" | "light";
   className?: string;
 }) {
-  const muted = tone === "dark" ? "text-mist/70" : "text-slate";
-  const strong = tone === "dark" ? "text-white" : "text-ink-900";
-  const strike = tone === "dark" ? "text-mist/50" : "text-slate/70";
+  const muted = tone === "dark" ? "text-cloud/70" : "text-void";
+  const strong = tone === "dark" ? "text-white" : "text-void-900";
+  const strike = tone === "dark" ? "text-cloud/50" : "text-void/70";
 
   const rows = [
     { label: "Total value", value: formatUSD(tier.totalValue), note: "" },
@@ -79,11 +79,11 @@ export function PriceDrop({
         className={cn(
           "relative mt-1 overflow-hidden rounded-2xl border p-6",
           tone === "dark"
-            ? "border-pulse/40 bg-gradient-to-br from-pulse/[0.12] to-signal/[0.06]"
-            : "border-pulse/30 bg-gradient-to-br from-pulse/[0.08] to-signal/[0.04]"
+            ? "border-ember/40 bg-gradient-to-br from-ember/[0.12] to-violet/[0.06]"
+            : "border-ember/30 bg-gradient-to-br from-ember/[0.08] to-violet/[0.04]"
         )}
       >
-        <p className={cn("eyebrow mb-2", tone === "dark" ? "text-pulse" : "text-pulse-deep")}>
+        <p className={cn("eyebrow mb-2", tone === "dark" ? "text-ember" : "text-ember-deep")}>
           Your price
         </p>
         <p className={cn("font-display text-3xl font-bold sm:text-4xl", strong)}>

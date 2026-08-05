@@ -59,7 +59,7 @@ export default function TermsPage() {
         <h2>Contact</h2>
         <p>
           Questions about these terms? Email{" "}
-          <a href={`mailto:${site.contact.email}`} className="text-signal underline underline-offset-4">
+          <a href={`mailto:${site.contact.email}`} className="text-violet underline underline-offset-4">
             {site.contact.email}
           </a>
           .

@@ -37,14 +37,14 @@ export function TierCard({
       className={cn(
         "relative flex flex-col rounded-3xl p-6 sm:p-7",
         featured
-          ? "border border-pulse/40 bg-ink-900 text-mist shadow-[0_30px_80px_-24px_rgba(255,122,89,0.4)] ring-1 ring-pulse/20"
-          : "border border-slate/12 bg-paper text-ink-900 shadow-soft",
+          ? "border border-ember/40 bg-void-900 text-cloud shadow-[0_30px_80px_-24px_rgba(255,122,89,0.4)] ring-1 ring-ember/20"
+          : "border border-void/12 bg-paper text-void-900 shadow-soft",
         className
       )}
     >
       {tier.badge && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-pulse to-pulse-deep px-3.5 py-1 text-xs font-bold uppercase tracking-wide text-ink-950 shadow-pulse-glow">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-ember to-ember-deep px-3.5 py-1 text-xs font-bold uppercase tracking-wide text-void shadow-ember">
             <Star className="h-3.5 w-3.5 fill-current" aria-hidden />
             {tier.badge}
           </span>
@@ -53,10 +53,10 @@ export function TierCard({
 
       {/* Header */}
       <div className={cn(tier.badge && "mt-2")}>
-        <h3 className={cn("font-display text-xl font-bold", featured ? "text-white" : "text-ink-900")}>
+        <h3 className={cn("font-display text-xl font-bold", featured ? "text-white" : "text-void-900")}>
           {tier.name}
         </h3>
-        <p className={cn("mt-1 text-sm", featured ? "text-mist/55" : "text-slate")}>
+        <p className={cn("mt-1 text-sm", featured ? "text-cloud/55" : "text-void")}>
           Best for {tier.bestFor.toLowerCase()}
         </p>
       </div>
@@ -64,14 +64,14 @@ export function TierCard({
       {/* Price */}
       <div className="mt-5">
         <div className="flex items-baseline gap-1">
-          <span className={cn("font-display text-4xl font-bold", featured ? "text-white" : "text-ink-900")}>
+          <span className={cn("font-display text-4xl font-bold", featured ? "text-white" : "text-void-900")}>
             {monthlyLabel(tier)}
           </span>
-          <span className={cn("text-base font-medium", featured ? "text-mist/55" : "text-slate")}>
+          <span className={cn("text-base font-medium", featured ? "text-cloud/55" : "text-void")}>
             /month
           </span>
         </div>
-        <p className={cn("mt-1 text-sm", featured ? "text-mist/55" : "text-slate")}>
+        <p className={cn("mt-1 text-sm", featured ? "text-cloud/55" : "text-void")}>
           + ${tier.setup.toLocaleString()} one-time setup
         </p>
       </div>
@@ -80,15 +80,15 @@ export function TierCard({
       <div
         className={cn(
           "mt-5 flex items-start gap-2.5 rounded-xl border p-3.5",
-          featured ? "border-live/25 bg-live/[0.06]" : "border-signal/15 bg-signal/[0.04]"
+          featured ? "border-mint/25 bg-mint/[0.06]" : "border-violet/15 bg-violet/[0.04]"
         )}
       >
-        <Phone className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-live" : "text-signal")} aria-hidden />
+        <Phone className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-mint" : "text-violet")} aria-hidden />
         <div>
-          <p className={cn("text-sm font-semibold", featured ? "text-white" : "text-ink-900")}>
+          <p className={cn("text-sm font-semibold", featured ? "text-white" : "text-void-900")}>
             {callsLabel(tier)} included
           </p>
-          <p className={cn("text-xs", featured ? "text-mist/50" : "text-slate")}>
+          <p className={cn("text-xs", featured ? "text-cloud/50" : "text-void")}>
             {minutesLabel(tier)}
           </p>
         </div>
@@ -112,12 +112,12 @@ export function TierCard({
       <ul className="mt-6 space-y-2.5">
         {features.map((f) => (
           <li key={f} className="flex items-start gap-2.5 text-sm">
-            <Check className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-live" : "text-signal")} aria-hidden />
-            <span className={featured ? "text-mist/85" : "text-ink-800"}>{f}</span>
+            <Check className={cn("mt-0.5 h-4 w-4 shrink-0", featured ? "text-mint" : "text-violet")} aria-hidden />
+            <span className={featured ? "text-cloud/85" : "text-void-800"}>{f}</span>
           </li>
         ))}
         {moreCount > 0 && (
-          <li className={cn("pl-6 text-sm font-medium", featured ? "text-live" : "text-signal")}>
+          <li className={cn("pl-6 text-sm font-medium", featured ? "text-mint" : "text-violet")}>
             + {moreCount} more
           </li>
         )}
@@ -127,7 +127,7 @@ export function TierCard({
         <p
           className={cn(
             "mt-5 rounded-xl border border-dashed p-3 text-xs leading-relaxed",
-            featured ? "border-ink-700 text-mist/55" : "border-slate/20 text-slate"
+            featured ? "border-void-700 text-cloud/55" : "border-void/20 text-void"
           )}
         >
           {extraMinutesNote(tier)}

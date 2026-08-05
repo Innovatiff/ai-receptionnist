@@ -19,7 +19,7 @@ import { valueStackFor, professional } from "@/content/pricing";
 export function OfferStack() {
   const stack = valueStackFor("professional");
   return (
-    <Section tone="mist" id="offer">
+    <Section tone="light" id="offer">
       <SectionHeading
         tone="light"
         eyebrow="Everything in Professional"
@@ -32,9 +32,9 @@ export function OfferStack() {
         <motion.div
           variants={staggerParent(0.06)}
           {...inViewOnce}
-          className="overflow-hidden rounded-3xl border border-slate/10 bg-paper shadow-card"
+          className="overflow-hidden rounded-3xl border border-void/10 bg-paper shadow-card"
         >
-          <ul className="divide-y divide-slate/10">
+          <ul className="divide-y divide-void/10">
             {stack.map((item) => (
               <motion.li
                 key={item.label}
@@ -45,8 +45,8 @@ export function OfferStack() {
                   <span
                     className={
                       item.isBonus
-                        ? "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pulse/10 text-pulse"
-                        : "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-signal/10 text-signal"
+                        ? "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ember/10 text-ember"
+                        : "mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet/10 text-violet"
                     }
                   >
                     {item.isBonus ? (
@@ -56,13 +56,13 @@ export function OfferStack() {
                     )}
                   </span>
                   <div>
-                    <p className="font-medium leading-snug text-ink-900">{item.label}</p>
+                    <p className="font-medium leading-snug text-void-900">{item.label}</p>
                     {item.detail && (
-                      <p className="mt-0.5 text-sm text-slate">{item.detail}</p>
+                      <p className="mt-0.5 text-sm text-void">{item.detail}</p>
                     )}
                   </div>
                 </div>
-                <span className="shrink-0 font-mono text-sm text-slate/70 line-through decoration-slate/40">
+                <span className="shrink-0 font-mono text-sm text-void/70 line-through decoration-void/40">
                   {formatUSD(item.value)}
                 </span>
               </motion.li>
@@ -73,12 +73,12 @@ export function OfferStack() {
           <motion.div
             variants={fadeUp}
             {...inViewOnce}
-            className="flex items-center justify-between gap-4 bg-ink-900 px-5 py-5 sm:px-6"
+            className="flex items-center justify-between gap-4 bg-void-900 px-5 py-5 sm:px-6"
           >
             <span className="font-display text-lg font-semibold text-white">
               Total value
             </span>
-            <span className="font-display text-2xl font-bold text-live sm:text-3xl">
+            <span className="font-display text-2xl font-bold text-mint sm:text-3xl">
               <StatCounter to={professional.totalValue} prefix="$" duration={2000} />
             </span>
           </motion.div>
@@ -86,7 +86,7 @@ export function OfferStack() {
 
         {/* Price drop + guarantee */}
         <div className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-slate/10 bg-paper p-6 shadow-card sm:p-7">
+          <div className="rounded-3xl border border-void/10 bg-paper p-6 shadow-card sm:p-7">
             <PriceDrop tone="light" />
           </div>
           <GuaranteeBadge variant="card" tone="light" />

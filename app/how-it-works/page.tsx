@@ -49,7 +49,7 @@ export default function HowItWorksPage() {
         title={
           <>
             We build it. We plug it in.{" "}
-            <span className="text-live-gradient">It books for you.</span>
+            <span className="text-gradient">It books for you.</span>
           </>
         }
         intro="No tech skills, no new number, no lifting a finger. Here's exactly what happens — and what your callers experience."
@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
 
       <HowItWorks />
 
-      <Section tone="mist">
+      <Section tone="light">
         <SectionHeading
           tone="light"
           eyebrow="Under the hood"
@@ -70,21 +70,21 @@ export default function HowItWorksPage() {
           {details.map((d) => (
             <div
               key={d.title}
-              className="flex gap-4 rounded-2xl border border-slate/10 bg-paper p-6 shadow-soft"
+              className="flex gap-4 rounded-2xl border border-void/10 bg-paper p-6 shadow-soft"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-signal/10 text-signal">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet/10 text-violet">
                 <d.icon className="h-6 w-6" aria-hidden />
               </span>
               <div>
-                <h3 className="font-display text-lg font-semibold text-ink-900">{d.title}</h3>
-                <p className="mt-1.5 text-[0.95rem] leading-relaxed text-slate">{d.body}</p>
+                <h3 className="font-display text-lg font-semibold text-void-900">{d.title}</h3>
+                <p className="mt-1.5 text-[0.95rem] leading-relaxed text-void">{d.body}</p>
               </div>
             </div>
           ))}
         </div>
-        <p className="mt-10 text-center text-slate">
+        <p className="mt-10 text-center text-void">
           Curious what it costs?{" "}
-          <Link href="/pricing" className="font-medium text-signal underline underline-offset-4">
+          <Link href="/pricing" className="font-medium text-violet underline underline-offset-4">
             See the full offer and pricing
           </Link>
           .

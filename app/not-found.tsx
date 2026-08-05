@@ -6,15 +6,15 @@ import { site } from "@/content/site";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-ink-950 pt-[var(--header-h)]">
-      <div className="signal-grid pointer-events-none absolute inset-0 opacity-50" aria-hidden />
+    <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-void pt-[var(--header-h)]">
+      <div className="grid-dots pointer-events-none absolute inset-0 opacity-50" aria-hidden />
       <div className="container-page relative flex flex-col items-center text-center">
         <Soundwave bars={6} height={30} />
-        <p className="eyebrow mt-6 text-live">Line dropped</p>
+        <p className="eyebrow mt-6 text-mint">Line dropped</p>
         <h1 className="mt-4 text-display-lg font-bold text-white">
           We couldn&apos;t find that page.
         </h1>
-        <p className="mt-4 max-w-md text-lg text-mist/70">
+        <p className="mt-4 max-w-md text-lg text-cloud/70">
           But we&apos;d never drop your customers&apos; calls like that. Let&apos;s get you
           back on track.
         </p>
@@ -28,7 +28,7 @@ export default function NotFound() {
         </div>
         <a
           href={site.contact.demoLineHref}
-          className="mt-6 inline-flex items-center gap-2 text-sm text-mist/50 hover:text-live"
+          className="mt-6 inline-flex items-center gap-2 text-sm text-cloud/50 hover:text-mint"
         >
           <PhoneCall className="h-4 w-4" aria-hidden />
           Or hear the demo line: {site.contact.demoLine}

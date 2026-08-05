@@ -2,12 +2,7 @@ import { ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { guarantees, type Guarantee } from "@/content/offer";
 
-/**
- * Reusable guarantee component.
- *  - variant="seal"  → compact badge (hero, near CTAs)
- *  - variant="card"  → full guarantee with body (offer/pricing)
- *  - variant="mini"  → one-line footer badge
- */
+/** seal (compact) · card (full) · mini (one line). */
 export function GuaranteeBadge({
   guarantee = guarantees[0],
   variant = "seal",
@@ -24,11 +19,11 @@ export function GuaranteeBadge({
       <span
         className={cn(
           "inline-flex items-center gap-2 text-sm font-medium",
-          tone === "dark" ? "text-mist/80" : "text-ink-800",
+          tone === "dark" ? "text-haze" : "text-void/70",
           className
         )}
       >
-        <ShieldCheck className="h-4 w-4 text-live" aria-hidden />
+        <ShieldCheck className="h-4 w-4 text-mint" aria-hidden />
         {guarantee.name}
       </span>
     );
@@ -38,45 +33,35 @@ export function GuaranteeBadge({
     return (
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl border p-6 sm:p-7",
+          "relative overflow-hidden rounded-3xl border p-6 sm:p-8",
           tone === "dark"
-            ? "border-live/25 bg-live/[0.06]"
-            : "border-signal/20 bg-signal/[0.04]",
+            ? "border-mint/20 bg-mint/[0.05]"
+            : "border-violet-600/15 bg-violet-600/[0.04]",
           className
         )}
       >
         <div className="flex items-start gap-4">
           <span
             className={cn(
-              "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl",
-              tone === "dark" ? "bg-live/15 text-live" : "bg-signal/10 text-signal"
+              "flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl",
+              tone === "dark" ? "bg-mint/15 text-mint" : "bg-violet-600/10 text-violet-700"
             )}
           >
             <ShieldCheck className="h-6 w-6" aria-hidden />
           </span>
-          <div className="space-y-1.5">
-            <p
-              className={cn(
-                "eyebrow",
-                tone === "dark" ? "text-live" : "text-signal"
-              )}
-            >
+          <div className="space-y-2">
+            <p className={cn("eyebrow", tone === "dark" ? "text-mint" : "text-violet-700")}>
               {guarantee.name}
             </p>
             <p
               className={cn(
-                "font-display text-lg font-semibold",
-                tone === "dark" ? "text-white" : "text-ink-900"
+                "font-display text-lg font-semibold sm:text-xl",
+                tone === "dark" ? "text-white" : "text-void"
               )}
             >
               {guarantee.headline}
             </p>
-            <p
-              className={cn(
-                "text-[0.95rem] leading-relaxed",
-                tone === "dark" ? "text-mist/70" : "text-slate"
-              )}
-            >
+            <p className={cn("text-[0.95rem] leading-relaxed", tone === "dark" ? "text-haze" : "text-void/60")}>
               {guarantee.body}
             </p>
           </div>
@@ -85,18 +70,17 @@ export function GuaranteeBadge({
     );
   }
 
-  // seal
   return (
     <span
       className={cn(
         "inline-flex items-center gap-2.5 rounded-full border px-4 py-2",
         tone === "dark"
-          ? "border-live/30 bg-ink-800/60 text-mist"
-          : "border-signal/25 bg-white text-ink-800 shadow-soft",
+          ? "border-mint/25 bg-mint/[0.07] text-cloud backdrop-blur-xl"
+          : "border-violet-600/20 bg-white text-void shadow-soft",
         className
       )}
     >
-      <ShieldCheck className="h-5 w-5 text-live" aria-hidden />
+      <ShieldCheck className="h-5 w-5 text-mint" aria-hidden />
       <span className="text-sm font-semibold">{guarantee.name}</span>
     </span>
   );

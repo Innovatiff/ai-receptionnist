@@ -1,13 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUp, staggerParent, inViewOnce } from "@/lib/animations";
+import { fadeUp, staggerParent, inViewSoft } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
-/**
- * Reusable eyebrow + headline + optional intro block with a staggered reveal.
- * `tone` controls text color for dark vs light sections.
- */
+/** Eyebrow + big title + optional intro, with a staggered reveal. */
 export function SectionHeading({
   eyebrow,
   title,
@@ -28,9 +25,9 @@ export function SectionHeading({
   return (
     <motion.div
       variants={staggerParent(0.08)}
-      {...inViewOnce}
+      {...inViewSoft}
       className={cn(
-        "flex flex-col gap-4",
+        "flex flex-col gap-5",
         align === "center" ? "items-center text-center" : "items-start text-left",
         className
       )}
@@ -39,18 +36,21 @@ export function SectionHeading({
         <motion.span
           variants={fadeUp}
           className={cn(
-            "eyebrow",
-            tone === "dark" ? "text-live" : "text-signal"
+            "eyebrow inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5",
+            tone === "dark"
+              ? "border-violet-500/25 bg-violet-500/10 text-violet-300"
+              : "border-violet-600/20 bg-violet-600/[0.07] text-violet-700"
           )}
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden />
           {eyebrow}
         </motion.span>
       )}
       <motion.div variants={fadeUp}>
         <Tag
           className={cn(
-            "text-display-md sm:text-display-lg max-w-3xl",
-            tone === "dark" ? "text-white" : "text-ink-900",
+            "text-display-lg max-w-4xl",
+            tone === "dark" ? "text-white" : "text-void",
             align === "center" && "mx-auto"
           )}
         >
@@ -61,8 +61,8 @@ export function SectionHeading({
         <motion.p
           variants={fadeUp}
           className={cn(
-            "max-w-2xl text-lg leading-relaxed",
-            tone === "dark" ? "text-mist/70" : "text-slate",
+            "max-w-2xl text-body-lg",
+            tone === "dark" ? "text-haze" : "text-void/60",
             align === "center" && "mx-auto"
           )}
         >

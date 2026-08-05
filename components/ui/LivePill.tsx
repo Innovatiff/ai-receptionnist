@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Small "● LIVE — Answering now" status pill. The live dot pulses (CSS). */
+/** "● LIVE" status pill with a pulsing dot. */
 export function LivePill({
   label = "Answering now",
   className,
@@ -13,16 +13,16 @@ export function LivePill({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-3 py-1 text-eyebrow font-mono uppercase tracking-[0.14em]",
+        "inline-flex items-center gap-2 rounded-full px-3 py-1 text-[0.7rem] font-mono font-medium uppercase tracking-[0.16em]",
         tone === "dark"
-          ? "border border-live/30 bg-live/10 text-live"
-          : "border border-signal/30 bg-signal/10 text-signal-700",
+          ? "border border-mint/30 bg-mint/10 text-mint"
+          : "border border-violet-600/25 bg-violet-600/10 text-violet-700",
         className
       )}
     >
-      <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-live-dot rounded-full bg-live" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-live" />
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-live-dot rounded-full bg-current" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current" />
       </span>
       {label}
     </span>

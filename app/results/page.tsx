@@ -22,24 +22,24 @@ export default function ResultsPage() {
         eyebrow="Results"
         title={
           <>
-            Fewer missed calls. <span className="text-live-gradient">More booked jobs.</span>
+            Fewer missed calls. <span className="text-gradient">More booked jobs.</span>
           </>
         }
         intro="Real case studies and numbers will live here as clients come online. Everything below is a clearly-labeled placeholder — nothing is presented as a verified fact until it's real."
       />
 
       {/* Stat strip */}
-      <Section tone="ink" innerClassName="max-w-4xl">
+      <Section tone="void" innerClassName="max-w-4xl">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           {resultStats.map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-ink-700/60 bg-ink-800/50 p-6 text-center"
+              className="rounded-2xl border border-void-700/60 bg-void-800/50 p-6 text-center"
             >
-              <p className="font-display text-3xl font-bold text-live sm:text-4xl">
+              <p className="font-display text-3xl font-bold text-mint sm:text-4xl">
                 <StatCounter to={s.value} prefix={s.prefix} suffix={s.suffix} />
               </p>
-              <p className="mt-1.5 text-sm text-mist/60">{s.label}</p>
+              <p className="mt-1.5 text-sm text-cloud/60">{s.label}</p>
               <span className="mt-2 inline-block rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.6rem] font-medium uppercase tracking-wide text-amber-300/80">
                 Placeholder
               </span>
@@ -49,7 +49,7 @@ export default function ResultsPage() {
       </Section>
 
       {/* Case studies */}
-      <Section tone="mist">
+      <Section tone="light">
         <SectionHeading
           tone="light"
           eyebrow="Case studies"
@@ -59,28 +59,28 @@ export default function ResultsPage() {
           {caseStudies.map((c) => (
             <div
               key={c.business}
-              className="grid gap-6 rounded-3xl border border-slate/10 bg-paper p-6 shadow-soft sm:p-8 lg:grid-cols-[0.8fr_1.2fr]"
+              className="grid gap-6 rounded-3xl border border-void/10 bg-paper p-6 shadow-soft sm:p-8 lg:grid-cols-[0.8fr_1.2fr]"
             >
               <div>
-                <span className="inline-block rounded-full bg-signal/10 px-3 py-1 text-xs font-semibold text-signal">
+                <span className="inline-block rounded-full bg-violet/10 px-3 py-1 text-xs font-semibold text-violet">
                   {c.industry}
                 </span>
-                <h3 className="mt-3 font-display text-xl font-bold text-ink-900">{c.business}</h3>
+                <h3 className="mt-3 font-display text-xl font-bold text-void-900">{c.business}</h3>
                 <span className="mt-2 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-2 py-0.5 text-[0.6rem] font-medium uppercase tracking-wide text-amber-600">
                   Placeholder
                 </span>
               </div>
               <div className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-pulse">The challenge</p>
-                  <p className="mt-1 text-[0.95rem] leading-relaxed text-slate">{c.challenge}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-ember">The challenge</p>
+                  <p className="mt-1 text-[0.95rem] leading-relaxed text-void">{c.challenge}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-signal">What changed</p>
-                  <p className="mt-1 text-[0.95rem] leading-relaxed text-slate">{c.result}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-violet">What changed</p>
+                  <p className="mt-1 text-[0.95rem] leading-relaxed text-void">{c.result}</p>
                 </div>
-                <div className="rounded-xl bg-mist p-4">
-                  <p className="text-sm font-medium text-ink-900">{c.stat}</p>
+                <div className="rounded-xl bg-cloud p-4">
+                  <p className="text-sm font-medium text-void-900">{c.stat}</p>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function ResultsPage() {
       </Section>
 
       {/* Testimonials */}
-      <Section tone="ink-deep">
+      <Section tone="deep">
         <SectionHeading eyebrow="In their words" title="What owners say." />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {testimonials.map((t, i) => (

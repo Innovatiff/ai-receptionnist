@@ -20,12 +20,12 @@ export function ScarcityNote({
       className={cn(
         "rounded-2xl border p-5 text-sm leading-relaxed",
         tone === "dark"
-          ? "border-pulse/30 bg-pulse/[0.07] text-mist/85"
-          : "border-pulse/25 bg-pulse/[0.06] text-ink-800",
+          ? "border-ember/30 bg-ember/[0.07] text-cloud/85"
+          : "border-ember/25 bg-ember/[0.06] text-void-800",
         className
       )}
     >
-      <p className="flex items-center gap-2 font-semibold text-pulse">
+      <p className="flex items-center gap-2 font-semibold text-ember">
         <CalendarClock className="h-4 w-4" aria-hidden />
         Founding-client pricing · {spotsRemaining}{" "}
         {spotsRemaining === 1 ? "spot" : "spots"} left this month

@@ -78,7 +78,7 @@ export function AudioPlayer({
   };
 
   return (
-    <div className="w-full rounded-3xl border border-ink-700/70 bg-ink-800/60 p-6 shadow-glow sm:p-8">
+    <div className="w-full rounded-3xl border border-void-700/70 bg-void-800/60 p-6 shadow-violet sm:p-8">
       <audio ref={audioRef} src={src} preload="none" />
 
       <div className="flex items-center gap-5">
@@ -90,8 +90,8 @@ export function AudioPlayer({
           className={cn(
             "flex h-16 w-16 shrink-0 items-center justify-center rounded-full transition-all duration-200",
             errored
-              ? "cursor-not-allowed bg-ink-700 text-mist/40"
-              : "bg-pulse text-ink-950 shadow-pulse-glow hover:bg-pulse-hover hover:scale-105"
+              ? "cursor-not-allowed bg-void-700 text-cloud/40"
+              : "bg-ember text-void shadow-ember hover:bg-ember-deep hover:scale-105"
           )}
         >
           {playing ? <Pause className="h-6 w-6" /> : <Play className="ml-0.5 h-6 w-6" />}
@@ -99,16 +99,16 @@ export function AudioPlayer({
 
         <div className="min-w-0 flex-1">
           <p className="font-display font-semibold text-white">{title}</p>
-          <p className="truncate text-sm text-mist/60">{subtitle}</p>
+          <p className="truncate text-sm text-cloud/60">{subtitle}</p>
 
           <div className="mt-3 flex items-center gap-3">
-            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink-700">
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-void-700">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-signal to-live transition-[width] duration-150"
+                className="h-full rounded-full bg-gradient-to-r from-violet to-mint transition-[width] duration-150"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="font-mono text-xs text-mist/50">
+            <span className="font-mono text-xs text-cloud/50">
               {fmt(current)} / {fmt(duration)}
             </span>
           </div>

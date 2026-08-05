@@ -30,7 +30,7 @@ export default function PricingPage() {
         title={
           <>
             Simple pricing.{" "}
-            <span className="text-live-gradient">One booked job pays for the month.</span>
+            <span className="text-gradient">One booked job pays for the month.</span>
           </>
         }
         intro="Pick a plan with the call volume you need. Setup once, done for you. Month-to-month, cancel anytime — and two guarantees put the risk on us."
@@ -41,7 +41,7 @@ export default function PricingPage() {
       {/* Full tier cards */}
       <PricingTiers
         variant="full"
-        tone="mist"
+        tone="light"
         eyebrow="Three plans, one finished front desk"
         title="Pick your plan. Cancel anytime."
         intro="Every plan is built for your business and live in 7 days. Extra minutes are billed at the plain rate on your plan — no surprises."
@@ -51,7 +51,7 @@ export default function PricingPage() {
       <OfferStack />
 
       {/* Both guarantees, full */}
-      <Section tone="ink-deep">
+      <Section tone="deep">
         <SectionHeading
           eyebrow="Risk, reversed twice"
           title="Two guarantees. Zero risk to you."
@@ -68,7 +68,7 @@ export default function PricingPage() {
       <ComparisonTable withHeading withCta={false} />
 
       {/* Scarcity + pricing FAQ */}
-      <Section tone="mist">
+      <Section tone="light">
         <div className="mx-auto max-w-3xl">
           <ScarcityNote tone="light" className="mb-12" />
           <SectionHeading

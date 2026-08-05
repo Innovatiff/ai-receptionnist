@@ -21,7 +21,7 @@ export function DemoScheduler() {
 
   if (url) {
     return (
-      <div className="overflow-hidden rounded-3xl border border-ink-700/70 bg-white shadow-glow">
+      <div className="overflow-hidden rounded-3xl border border-void-700/70 bg-white shadow-violet">
         <iframe
           src={url}
           title="Book your free demo"
@@ -33,7 +33,7 @@ export function DemoScheduler() {
   }
 
   return (
-    <div className="rounded-3xl border border-ink-700/70 bg-ink-800/50 p-6 shadow-glow sm:p-8">
+    <div className="rounded-3xl border border-void-700/70 bg-void-800/50 p-6 shadow-violet sm:p-8">
       <LeadForm />
     </div>
   );

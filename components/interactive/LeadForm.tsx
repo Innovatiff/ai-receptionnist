@@ -55,10 +55,10 @@ export function LeadForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-3xl border border-live/30 bg-live/[0.06] p-8 text-center">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-live" aria-hidden />
+      <div className="rounded-3xl border border-mint/30 bg-mint/[0.06] p-8 text-center">
+        <CheckCircle2 className="mx-auto h-12 w-12 text-mint" aria-hidden />
         <h3 className="mt-4 font-display text-2xl font-bold text-white">Demo booked.</h3>
-        <p className="mt-2 text-mist/70">
+        <p className="mt-2 text-cloud/70">
           I&apos;ll reach out shortly to set up your live call — you&apos;ll hear your AI
           receptionist answer before you decide anything. Talk soon.
         </p>
@@ -67,7 +67,7 @@ export function LeadForm() {
   }
 
   const inputBase =
-    "w-full rounded-xl border border-ink-700 bg-ink-950/50 px-4 py-3 text-white placeholder:text-mist/35 focus:border-signal focus-visible:ring-2 focus-visible:ring-signal/60 outline-none transition-colors";
+    "w-full rounded-xl border border-void-700 bg-void/50 px-4 py-3 text-white placeholder:text-cloud/35 focus:border-violet focus-visible:ring-2 focus-visible:ring-violet/60 outline-none transition-colors";
 
   return (
     <form onSubmit={onSubmit} className="space-y-4" noValidate>
@@ -79,13 +79,13 @@ export function LeadForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-mist/80">
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-cloud/80">
             Your name
           </label>
           <input id="name" name="name" autoComplete="name" className={inputBase} placeholder="Jordan Smith" />
         </div>
         <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-mist/80">
+          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-cloud/80">
             Phone
           </label>
           <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputBase} placeholder="(555) 018-2277" />
@@ -94,13 +94,13 @@ export function LeadForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="business" className="mb-1.5 block text-sm font-medium text-mist/80">
+          <label htmlFor="business" className="mb-1.5 block text-sm font-medium text-cloud/80">
             Business name
           </label>
           <input id="business" name="business" className={inputBase} placeholder="Smith Plumbing" />
         </div>
         <div>
-          <label htmlFor="industry" className="mb-1.5 block text-sm font-medium text-mist/80">
+          <label htmlFor="industry" className="mb-1.5 block text-sm font-medium text-cloud/80">
             Industry
           </label>
           <select id="industry" name="industry" className={cn(inputBase, "appearance-none")} defaultValue="">
@@ -108,11 +108,11 @@ export function LeadForm() {
               Choose one
             </option>
             {industries.map((i) => (
-              <option key={i.slug} value={i.slug} className="bg-ink-900">
+              <option key={i.slug} value={i.slug} className="bg-void-900">
                 {i.name}
               </option>
             ))}
-            <option value="other" className="bg-ink-900">
+            <option value="other" className="bg-void-900">
               Something else
             </option>
           </select>
@@ -120,14 +120,14 @@ export function LeadForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-mist/80">
-          Email <span className="text-mist/40">(optional)</span>
+        <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-cloud/80">
+          Email <span className="text-cloud/40">(optional)</span>
         </label>
         <input id="email" name="email" type="email" autoComplete="email" className={inputBase} placeholder="you@business.com" />
       </div>
 
       {error && (
-        <p className="flex items-center gap-2 rounded-xl border border-pulse/30 bg-pulse/[0.08] px-4 py-3 text-sm text-pulse-soft">
+        <p className="flex items-center gap-2 rounded-xl border border-ember/30 bg-ember/[0.08] px-4 py-3 text-sm text-ember-soft">
           <AlertCircle className="h-4 w-4 shrink-0" aria-hidden />
           {error}
         </p>
@@ -148,7 +148,7 @@ export function LeadForm() {
           "Book My Free Demo"
         )}
       </Button>
-      <p className="text-center text-xs text-mist/45">
+      <p className="text-center text-xs text-cloud/45">
         No spam, no pressure. I&apos;ll set up a live call so you can hear it before you decide.
       </p>
     </form>

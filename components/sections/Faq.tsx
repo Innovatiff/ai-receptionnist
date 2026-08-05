@@ -23,7 +23,7 @@ export function Faq({
         <>
           Appointment-driven local businesses — dentists, med spas, HVAC and
           trades, salons, auto shops, law offices, clinics, and contractors.{" "}
-          <Link href="/industries" className="text-signal underline underline-offset-4">
+          <Link href="/industries" className="text-violet underline underline-offset-4">
             See the full list on Industries
           </Link>
           .
@@ -34,16 +34,16 @@ export function Faq({
   }));
 
   return (
-    <Section tone="mist" id="faq">
+    <Section tone="deep" id="faq">
       {withHeading && (
         <SectionHeading
-          tone="light"
+          tone="dark"
           eyebrow="Questions, answered"
           title="Everything you're wondering, before you ask."
         />
       )}
       <div className="mx-auto mt-10 max-w-3xl">
-        <Accordion items={items} tone="light" />
+        <Accordion items={items} tone="dark" />
         {limit && limit < faqs.length && (
           <div className="mt-8 flex justify-center">
             <Button href="/faq" variant="dark" withArrow trackLabel="faq_more">

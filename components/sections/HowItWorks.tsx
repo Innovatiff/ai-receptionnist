@@ -8,37 +8,37 @@ import { ClipboardList, PlugZap, CalendarHeart } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CtaCluster } from "@/components/ui/CtaCluster";
-import { fadeUp, inViewOnce } from "@/lib/animations";
+import { Aurora } from "@/components/ui/Aurora";
+import { revealScale, inViewSoft } from "@/lib/animations";
 
 const steps = [
   {
     icon: ClipboardList,
     title: "We build it",
-    body: "Send your info once. We train your AI on your services, hours & FAQs.",
-    tag: "~15 minutes",
+    body: "Send your info once. We train your AI on your services, hours & FAQs — and give it a name.",
+    tag: "~15 minutes of your time",
   },
   {
     icon: PlugZap,
     title: "We plug it in",
-    body: "Forward your calls — keep your number. Zero effort from you.",
+    body: "Forward your calls — keep your number. All calls, after-hours, or overflow only.",
     tag: "Live in 7 days",
   },
   {
     icon: CalendarHeart,
     title: "It books for you",
-    body: "Answers, books & follows up 24/7 while you work or sleep.",
-    tag: "24/7/365",
+    body: "Answers, books & follows up 24/7 while you work or sleep. You just see bookings appear.",
+    tag: "Working 24/7/365",
   },
 ];
 
 export function HowItWorks() {
   const lineRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced || !lineRef.current || !sectionRef.current) {
-      // Static: show the line fully drawn.
+    if (reduced || !lineRef.current || !wrapRef.current) {
       if (lineRef.current) lineRef.current.style.transform = "scaleY(1)";
       return;
     }
@@ -51,67 +51,75 @@ export function HowItWorks() {
           scaleY: 1,
           ease: "none",
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 65%",
-            end: "bottom 70%",
+            trigger: wrapRef.current,
+            start: "top 70%",
+            end: "bottom 65%",
             scrub: true,
           },
         }
       );
-    }, sectionRef);
+    }, wrapRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <Section tone="ink-deep" id="how-it-works">
+    <Section tone="deep" id="how-it-works">
+      <Aurora intensity="soft" />
       <SectionHeading
-        eyebrow="Done for you in 3 steps"
-        title="Live in 7 days. You don't lift a finger."
+        eyebrow="How it works"
+        title={
+          <>
+            Live in 7 days. <span className="text-gradient">You don&apos;t lift a finger.</span>
+          </>
+        }
       />
 
-      <div ref={sectionRef} className="relative mx-auto mt-16 max-w-3xl">
-        {/* Progress rail */}
-        <div className="absolute left-[27px] top-4 bottom-4 w-[2px] bg-ink-700/70 sm:left-[31px]" aria-hidden>
+      <div ref={wrapRef} className="relative mx-auto mt-14 max-w-3xl lg:mt-20">
+        {/* progress rail */}
+        <div
+          className="absolute bottom-6 left-[27px] top-6 w-px bg-white/10 sm:left-[31px]"
+          aria-hidden
+        >
           <div
             ref={lineRef}
-            className="h-full w-full origin-top bg-gradient-to-b from-live via-signal to-signal-700"
+            className="h-full w-full origin-top bg-gradient-to-b from-violet-300 via-violet to-ember"
             style={{ transform: "scaleY(0)" }}
           />
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-5 sm:space-y-6">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
-              variants={fadeUp}
-              {...inViewOnce}
+              variants={revealScale}
+              {...inViewSoft}
               className="relative flex gap-5 sm:gap-7"
             >
               <div className="relative z-10 shrink-0">
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-signal/30 bg-ink-900 sm:h-16 sm:w-16">
-                  <step.icon className="h-6 w-6 text-live" aria-hidden />
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-violet-400/25 bg-void-800 sm:h-16 sm:w-16">
+                  <step.icon className="h-6 w-6 text-violet-300" aria-hidden />
                 </span>
-                <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pulse font-display text-xs font-bold text-ink-950">
+                <span className="absolute -right-1.5 -top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-ember-glow to-ember-deep font-display text-xs font-bold text-void shadow-ember">
                   {i + 1}
                 </span>
               </div>
-              <div className="flex-1 rounded-2xl border border-ink-700/60 bg-ink-800/40 p-5 sm:p-6">
+              <div className="glass card-hover flex-1 p-5 sm:p-7">
                 <div className="flex flex-wrap items-center gap-3">
-                  <h3 className="font-display text-xl font-semibold text-white">
+                  <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
                     {step.title}
                   </h3>
-                  <span className="rounded-full bg-live/10 px-2.5 py-0.5 text-xs font-medium text-live">
+                  <span className="rounded-full border border-mint/20 bg-mint/10 px-2.5 py-1 text-[0.7rem] font-medium text-mint">
                     {step.tag}
                   </span>
                 </div>
-                <p className="mt-2 leading-relaxed text-mist/70">{step.body}</p>
+                <p className="mt-2.5 leading-relaxed text-haze">{step.body}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      <div className="mt-14">
+      <div className="mt-14 flex justify-center lg:mt-16">
         <CtaCluster trackLabel="how_it_works" secondaryHref="#hear-it" />
       </div>
     </Section>

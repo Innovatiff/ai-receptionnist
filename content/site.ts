@@ -4,16 +4,15 @@
  */
 
 export const site = {
-  name: "Novex AI",
-  // Two-part wordmark for the logo (lead in white, tail as the signal accent).
-  brand: { lead: "Novex", tail: "AI" },
+  name: "Booklead",
+  brand: { lead: "Book", tail: "lead" },
   tagline: "Custom AI receptionists for local business",
   offerName: "The 24/7 Booking Machine",
-  domain: "https://novexai.com", // PLACEHOLDER — replace with your real domain.
+  domain: "https://booklead.ai", // PLACEHOLDER — replace with your real domain.
   bigIdea: "Your phone is a leaky bucket. We plug it.",
 
   /**
-   * The white-label positioning: Novex AI is the company. What each client gets
+   * The white-label positioning: Booklead is the company. What each client gets
    * is a *custom* AI receptionist + booking system — trained on their business,
    * answering as their business, and given its own name. The hero call card and
    * the "Your AI, your name" section use this example client to show the tailoring.
@@ -36,7 +35,7 @@ export const site = {
 
   contact: {
     // PLACEHOLDER — replace with your real contact details.
-    email: "hello@novexai.com",
+    email: "hello@booklead.ai",
     phone: "(555) 018-2277",
     phoneHref: "tel:+15550182277",
     demoLine: "(555) 018-2200",
@@ -47,7 +46,7 @@ export const site = {
   founder: {
     // PLACEHOLDER — replace with the real founder name.
     name: "Alex Rivera",
-    role: "Founder, Novex AI",
+    role: "Founder, Booklead",
   },
 } as const;
 

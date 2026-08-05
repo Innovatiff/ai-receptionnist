@@ -12,9 +12,9 @@ import { site } from "@/content/site";
 /** 4.4 Hear It Yourself — live proof. A prominent credibility unlock. */
 export function HearItYourself() {
   return (
-    <Section tone="ink" id="hear-it">
+    <Section tone="void" id="hear-it">
       <div
-        className="pointer-events-none absolute inset-0 glow-signal opacity-30 blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-violet-glow opacity-30 blur-3xl"
         aria-hidden
       />
       <div className="relative mx-auto max-w-3xl">
@@ -22,7 +22,7 @@ export function HearItYourself() {
           eyebrow="Don't take our word for it"
           title={
             <>
-              Don&apos;t take our word for it. <span className="text-live-gradient">Hear it.</span>
+              Don&apos;t take our word for it. <span className="text-gradient">Hear it.</span>
             </>
           }
           intro="Press play — or call the live line and talk to it yourself."
@@ -36,15 +36,15 @@ export function HearItYourself() {
         <motion.div
           variants={fadeUp}
           {...inViewOnce}
-          className="mt-6 flex flex-col items-center gap-4 rounded-3xl border border-live/20 bg-live/[0.05] p-6 text-center sm:flex-row sm:justify-between sm:text-left"
+          className="mt-6 flex flex-col items-center gap-4 rounded-3xl border border-mint/20 bg-mint/[0.05] p-6 text-center sm:flex-row sm:justify-between sm:text-left"
         >
           <div className="flex items-center gap-4">
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-live/15 text-live">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-mint/15 text-mint">
               <PhoneCall className="h-5 w-5" aria-hidden />
             </span>
             <div>
               <p className="font-display font-semibold text-white">Call the live demo line</p>
-              <p className="text-sm text-mist/60">
+              <p className="text-sm text-cloud/60">
                 Talk to the AI receptionist right now — no booking needed.
               </p>
             </div>

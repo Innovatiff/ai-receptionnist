@@ -18,16 +18,16 @@ export default function CalculatorPage() {
         eyebrow="Missed-Money Calculator"
         title={
           <>
-            How much is your <span className="text-pulse">leaky bucket</span> costing you?
+            How much is your <span className="text-ember">leaky bucket</span> costing you?
           </>
         }
         intro="Every unanswered call is money dripping out. Move the sliders to see your estimated leak — and what you could recover by answering every call."
       />
 
-      <section className="relative bg-ink-900 pb-20 sm:pb-24">
+      <section className="relative bg-void-900 pb-20 sm:pb-24">
         <div className="container-page">
           <MissedMoneyCalculator tone="dark" />
-          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-mist/50">
+          <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-cloud/50">
             These figures are estimates to help you think about the cost of missed
             calls — not a promise of results or a claim about your specific business.
           </p>

@@ -53,7 +53,7 @@ export default function PrivacyPage() {
         <h2>Your choices</h2>
         <p>
           You can request export or deletion of your data at any time by emailing{" "}
-          <a href={`mailto:${site.contact.email}`} className="text-signal underline underline-offset-4">
+          <a href={`mailto:${site.contact.email}`} className="text-violet underline underline-offset-4">
             {site.contact.email}
           </a>
           .

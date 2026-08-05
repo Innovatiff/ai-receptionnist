@@ -11,7 +11,7 @@ import { testimonials, resultStats, trustLogos } from "@/content/testimonials";
 /** 4.8 Proof — placeholder-driven social proof. Nothing here is a real claim yet. */
 export function ProofBlock() {
   return (
-    <Section tone="ink" id="proof">
+    <Section tone="void" id="proof">
       <SectionHeading
         eyebrow="Proof it works"
         title="Local businesses stopped losing calls. So can you."
@@ -28,9 +28,9 @@ export function ProofBlock() {
           <motion.div
             key={s.label}
             variants={revealScale}
-            className="rounded-2xl border border-ink-700/60 bg-ink-800/50 p-6 text-center"
+            className="rounded-2xl border border-void-700/60 bg-void-800/50 p-6 text-center"
           >
-            <p className="font-display text-3xl font-bold text-live sm:text-4xl">
+            <p className="font-display text-3xl font-bold text-mint sm:text-4xl">
               <StatCounter
                 to={s.value}
                 prefix={s.prefix}
@@ -38,7 +38,7 @@ export function ProofBlock() {
                 duration={1800}
               />
             </p>
-            <p className="mt-1.5 text-sm text-mist/60">{s.label}</p>
+            <p className="mt-1.5 text-sm text-cloud/60">{s.label}</p>
             <span className="mt-2 inline-block rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-[0.6rem] font-medium uppercase tracking-wide text-amber-300/80">
               Placeholder
             </span>
@@ -61,7 +61,7 @@ export function ProofBlock() {
 
       {/* Trust logos */}
       <div className="mt-12">
-        <p className="text-center text-sm text-mist/45">
+        <p className="text-center text-sm text-cloud/45">
           As trusted by local businesses{" "}
           <span className="text-amber-300/70">(placeholder logos)</span>
         </p>
@@ -69,7 +69,7 @@ export function ProofBlock() {
           {trustLogos.map((logo) => (
             <span
               key={logo}
-              className="rounded-lg border border-dashed border-ink-600 px-4 py-2 font-display text-sm font-semibold text-mist/40"
+              className="rounded-lg border border-dashed border-void-600 px-4 py-2 font-display text-sm font-semibold text-cloud/40"
             >
               {logo}
             </span>

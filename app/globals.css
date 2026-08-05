@@ -6,22 +6,28 @@
   :root {
     --header-h: 4.5rem;
   }
+  @media (min-width: 1024px) {
+    :root {
+      --header-h: 5.25rem;
+    }
+  }
 
   * {
-    @apply border-slate/10;
+    @apply border-white/5;
   }
 
   html {
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-ink text-mist font-sans antialiased;
-    /* Lenis smooth-scroll drives scrolling; keep native fallback sane. */
+    @apply bg-void text-cloud font-sans antialiased;
+    overflow-x: hidden;
   }
 
-  /* Lenis smooth-scroll wiring */
+  /* Lenis */
   html.lenis,
   html.lenis body {
     height: auto;
@@ -40,89 +46,150 @@
     @apply font-display font-semibold;
     text-wrap: balance;
   }
-
   p {
     text-wrap: pretty;
   }
 
-  /* Visible keyboard focus everywhere (non-negotiable quality floor) */
   :focus-visible {
-    @apply outline-none ring-2 ring-live ring-offset-2 ring-offset-ink-900;
-    border-radius: 0.35rem;
+    @apply outline-none ring-2 ring-violet-400 ring-offset-2 ring-offset-void;
+    border-radius: 0.4rem;
   }
-  /* On light sections the ring offset should be light */
   .section-light :focus-visible {
-    @apply ring-signal ring-offset-mist;
+    @apply ring-violet-600 ring-offset-cloud;
   }
 
   ::selection {
-    background: rgba(91, 108, 255, 0.3);
+    background: rgba(124, 92, 255, 0.35);
     color: #fff;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0817;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2b2049;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #40289b;
   }
 }
 
 @layer components {
+  /* Container scales all the way to 2000px viewports */
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+    @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-10 3xl:max-w-[1560px];
   }
   .container-narrow {
     @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
   }
 
   .eyebrow {
-    @apply text-eyebrow font-mono font-medium uppercase tracking-[0.14em];
+    @apply text-eyebrow font-mono font-medium uppercase tracking-[0.18em];
   }
 
-  /* The "money"/live gradient text — used sparingly on signal accents */
-  .text-live-gradient {
-    @apply bg-gradient-to-r from-live via-signal-300 to-signal bg-clip-text text-transparent;
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-violet-200 via-violet-400 to-ember bg-clip-text text-transparent;
   }
-  .text-pulse-gradient {
-    @apply bg-gradient-to-r from-pulse-soft via-pulse to-pulse-deep bg-clip-text text-transparent;
+  .text-gradient-violet {
+    @apply bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent;
   }
 
-  /* Subtle dotted "signal grid" backdrop for dark sections */
-  .signal-grid {
-    background-image: radial-gradient(
-      rgba(124, 136, 255, 0.09) 1px,
-      transparent 1px
+  /* Glass surfaces */
+  .glass {
+    @apply rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply rounded-3xl border border-white/10 bg-white/[0.055] shadow-ring backdrop-blur-xl;
+  }
+
+  /* Card with a soft violet edge-light on hover */
+  .card-hover {
+    @apply transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-violet-500/40 hover:bg-white/[0.06];
+  }
+
+  /* Dotted grid + mesh backdrops */
+  .grid-dots {
+    background-image: radial-gradient(rgba(167, 159, 196, 0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(167, 159, 196, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(167, 159, 196, 0.07) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* Animated conic gradient border */
+  .border-glow {
+    position: relative;
+  }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0%,
+      rgba(124, 92, 255, 0.8) 20%,
+      rgba(255, 138, 76, 0.6) 35%,
+      transparent 55%
     );
-    background-size: 26px 26px;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
   }
 
-  .card-dark {
-    @apply rounded-2xl border border-ink-700/70 bg-ink-800/70 ring-1 ring-white/[0.03] backdrop-blur;
-  }
-  .card-light {
-    @apply rounded-2xl border border-slate/10 bg-paper shadow-soft ring-1 ring-ink-900/[0.02];
-  }
-
-  /* Premium hairline divider used between light sections */
-  .hairline {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-slate/15 to-transparent;
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .aurora {
+    background:
+      radial-gradient(45% 45% at 20% 20%, rgba(124, 92, 255, 0.35), transparent 70%),
+      radial-gradient(40% 40% at 80% 15%, rgba(255, 138, 76, 0.22), transparent 70%),
+      radial-gradient(50% 50% at 55% 80%, rgba(82, 50, 196, 0.35), transparent 70%);
   }
-  /* soft radial glow helper for hero/backdrops */
-  .glow-signal {
-    background: radial-gradient(
-      60% 60% at 50% 40%,
-      rgba(91, 108, 255, 0.35) 0%,
-      rgba(56, 225, 255, 0.12) 45%,
-      transparent 75%
-    );
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Reduced motion: instant, static fallback for EVERY animation. Required.
-   Any component that adds motion also checks this in JS via matchMedia.
---------------------------------------------------------------------------- */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Reduced motion: static fallback for EVERY animation. Required. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {

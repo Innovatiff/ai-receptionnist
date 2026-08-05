@@ -36,7 +36,7 @@ export function Slider({
           htmlFor={id}
           className={cn(
             "text-sm font-medium",
-            tone === "dark" ? "text-mist/80" : "text-ink-800"
+            tone === "dark" ? "text-cloud/80" : "text-void-800"
           )}
         >
           {label}
@@ -44,7 +44,7 @@ export function Slider({
         <span
           className={cn(
             "font-mono text-sm font-semibold",
-            tone === "dark" ? "text-live" : "text-signal"
+            tone === "dark" ? "text-mint" : "text-violet"
           )}
         >
           {display}
@@ -61,8 +61,8 @@ export function Slider({
         aria-valuetext={display}
         className={cn(
           "mt-3 h-2 w-full cursor-pointer appearance-none rounded-full outline-none",
-          "[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:ring-2 [&::-webkit-slider-thumb]:ring-signal [&::-webkit-slider-thumb]:transition-transform hover:[&::-webkit-slider-thumb]:scale-110",
-          "[&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:ring-2 [&::-moz-range-thumb]:ring-signal"
+          "[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:ring-2 [&::-webkit-slider-thumb]:ring-violet [&::-webkit-slider-thumb]:transition-transform hover:[&::-webkit-slider-thumb]:scale-110",
+          "[&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:ring-2 [&::-moz-range-thumb]:ring-violet"
         )}
         style={{
           background: `linear-gradient(to right, #5B6CFF 0%, #38E1FF ${pct}%, ${
@@ -71,7 +71,7 @@ export function Slider({
         }}
       />
       {hint && (
-        <p className={cn("mt-1.5 text-xs", tone === "dark" ? "text-mist/45" : "text-slate")}>
+        <p className={cn("mt-1.5 text-xs", tone === "dark" ? "text-cloud/45" : "text-void")}>
           {hint}
         </p>
       )}

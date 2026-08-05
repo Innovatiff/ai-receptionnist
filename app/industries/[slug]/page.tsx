@@ -56,16 +56,16 @@ export default async function IndustryPage({
       </PageHero>
 
       {/* Pains vs handles */}
-      <Section tone="ink">
+      <Section tone="void">
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-pulse/25 bg-pulse/[0.05] p-6 sm:p-8">
+          <div className="rounded-3xl border border-ember/25 bg-ember/[0.05] p-6 sm:p-8">
             <h2 className="font-display text-xl font-bold text-white">
               What&apos;s leaking now
             </h2>
             <ul className="mt-5 space-y-3">
               {ind.pains.map((p) => (
-                <li key={p} className="flex items-start gap-3 text-mist/75">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-pulse/15 text-pulse">
+                <li key={p} className="flex items-start gap-3 text-cloud/75">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ember/15 text-ember">
                     <X className="h-3 w-3" aria-hidden />
                   </span>
                   {p}
@@ -73,14 +73,14 @@ export default async function IndustryPage({
               ))}
             </ul>
           </div>
-          <div className="rounded-3xl border border-live/25 bg-live/[0.05] p-6 sm:p-8">
+          <div className="rounded-3xl border border-mint/25 bg-mint/[0.05] p-6 sm:p-8">
             <h2 className="font-display text-xl font-bold text-white">
               What your AI receptionist does
             </h2>
             <ul className="mt-5 space-y-3">
               {ind.handles.map((h) => (
-                <li key={h} className="flex items-start gap-3 text-mist/75">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-live/15 text-live">
+                <li key={h} className="flex items-start gap-3 text-cloud/75">
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint/15 text-mint">
                     <Check className="h-3 w-3" aria-hidden />
                   </span>
                   {h}
@@ -92,13 +92,13 @@ export default async function IndustryPage({
       </Section>
 
       {/* Industry-tuned calculator */}
-      <Section tone="ink-deep">
+      <Section tone="deep">
         <SectionHeading
           eyebrow="Your missed-money estimate"
           title={
             <>
               What missed calls likely cost a{" "}
-              <span className="text-pulse">{ind.short.toLowerCase()}</span> business.
+              <span className="text-ember">{ind.short.toLowerCase()}</span> business.
             </>
           }
           intro="Pre-filled with typical numbers for your industry. Adjust them to match your business — it's an estimate, not a promise."
@@ -109,14 +109,14 @@ export default async function IndustryPage({
       </Section>
 
       {/* Recommended plan for this vertical */}
-      <Section tone="mist">
+      <Section tone="light">
         <SectionHeading
           tone="light"
           eyebrow="The right-sized plan"
           title={
             <>
               Most {ind.name} choose{" "}
-              <span className="text-signal">{recommendedTier.name}</span>.
+              <span className="text-violet">{recommendedTier.name}</span>.
             </>
           }
           intro={`Based on typical ${ind.short.toLowerCase()} call volume, ${recommendedTier.name} gives you the calls you need with room to grow — priced to the value of a booked ${ind.short.toLowerCase()} job.`}
@@ -124,17 +124,17 @@ export default async function IndustryPage({
         <div className="mx-auto mt-12 max-w-sm">
           <TierCard tier={recommendedTier} variant="condensed" />
         </div>
-        <p className="mt-8 text-center text-slate">
-          <Link href="/pricing" className="font-semibold text-signal underline underline-offset-4">
+        <p className="mt-8 text-center text-void">
+          <Link href="/pricing" className="font-semibold text-violet underline underline-offset-4">
             Compare all plans →
           </Link>
         </p>
       </Section>
 
-      <Section tone="ink" innerClassName="max-w-3xl text-center">
-        <p className="text-lg text-mist/70">
+      <Section tone="void" innerClassName="max-w-3xl text-center">
+        <p className="text-lg text-cloud/70">
           Run a different business?{" "}
-          <Link href="/industries" className="font-medium text-live underline underline-offset-4">
+          <Link href="/industries" className="font-medium text-mint underline underline-offset-4">
             See every industry we serve
           </Link>
           .

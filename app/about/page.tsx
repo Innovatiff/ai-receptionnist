@@ -40,14 +40,14 @@ export default function AboutPage() {
         title={
           <>
             I built this because voicemail was{" "}
-            <span className="text-live-gradient">costing you customers.</span>
+            <span className="text-gradient">costing you customers.</span>
           </>
         }
         intro={`${site.bigIdea} That one idea is the whole reason ${site.name} exists.`}
       />
 
-      <Section tone="mist" innerClassName="max-w-3xl">
-        <div className="prose-invert space-y-5 text-lg leading-relaxed text-ink-800">
+      <Section tone="light" innerClassName="max-w-3xl">
+        <div className="prose-invert space-y-5 text-lg leading-relaxed text-void-800">
           <p>
             Here&apos;s the thing nobody tells you when you start a local business: the
             phone is your lifeline, and it rings at the worst possible times. When
@@ -68,28 +68,28 @@ export default function AboutPage() {
             thing I wished they had — an AI receptionist that answers every call, books
             the job, and texts the caller back. Done for you. Live in a week.
           </p>
-          <p className="font-display text-xl font-semibold text-ink-900">
+          <p className="font-display text-xl font-semibold text-void-900">
             You never miss another call. You never lose another customer. That&apos;s it.
             That&apos;s the whole promise.
           </p>
-          <p className="text-slate">
+          <p className="text-void">
             — {site.founder.name}, {site.founder.role}
           </p>
         </div>
       </Section>
 
-      <Section tone="ink">
+      <Section tone="void">
         <div className="grid gap-5 md:grid-cols-3">
           {values.map((v) => (
             <div
               key={v.title}
-              className="rounded-2xl border border-ink-700/60 bg-ink-800/40 p-6"
+              className="rounded-2xl border border-void-700/60 bg-void-800/40 p-6"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-signal/10 text-signal">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet/10 text-violet">
                 <v.icon className="h-6 w-6" aria-hidden />
               </span>
               <h2 className="mt-4 font-display text-lg font-semibold text-white">{v.title}</h2>
-              <p className="mt-2 text-[0.95rem] leading-relaxed text-mist/65">{v.body}</p>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-cloud/65">{v.body}</p>
             </div>
           ))}
         </div>

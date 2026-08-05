@@ -32,7 +32,7 @@ const cards = [
 
 export function SolutionCards() {
   return (
-    <Section tone="mist" id="solution">
+    <Section tone="light" id="solution">
       <SectionHeading
         tone="light"
         eyebrow="The plug for your leaky bucket"
@@ -49,13 +49,13 @@ export function SolutionCards() {
           <motion.div
             key={c.title}
             variants={revealScale}
-            className="group flex flex-col gap-4 rounded-2xl border border-slate/10 bg-paper p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card hover:border-signal/30"
+            className="group flex flex-col gap-4 rounded-2xl border border-void/10 bg-paper p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card hover:border-violet/30"
           >
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-signal/10 text-signal transition-all duration-300 group-hover:scale-110 group-hover:bg-signal group-hover:text-white">
+            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-violet/10 text-violet transition-all duration-300 group-hover:scale-110 group-hover:bg-violet group-hover:text-white">
               <c.icon className="h-6 w-6" aria-hidden />
             </span>
-            <h3 className="font-display text-lg font-semibold text-ink-900">{c.title}</h3>
-            <p className="text-[0.95rem] leading-relaxed text-slate">{c.body}</p>
+            <h3 className="font-display text-lg font-semibold text-void-900">{c.title}</h3>
+            <p className="text-[0.95rem] leading-relaxed text-void">{c.body}</p>
           </motion.div>
         ))}
       </motion.div>
