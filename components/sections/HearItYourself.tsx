@@ -14,7 +14,7 @@ export function HearItYourself() {
   return (
     <Section tone="void" id="hear-it">
       <div
-        className="pointer-events-none absolute inset-0 bg-violet-glow opacity-30 blur-3xl"
+        className="pointer-events-none absolute inset-0 bg-violet-glow opacity-30"
         aria-hidden
       />
       <div className="relative mx-auto max-w-3xl">

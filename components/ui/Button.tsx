@@ -20,7 +20,7 @@ const variants: Record<Variant, string> = {
   violet:
     "bg-gradient-to-r from-violet-400 via-violet to-violet-700 text-white shadow-violet hover:-translate-y-0.5",
   ghost:
-    "border border-white/15 bg-white/[0.04] text-cloud backdrop-blur-xl hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-white/[0.09]",
+    "border border-white/15 bg-white/[0.04] text-cloud lg:backdrop-blur-xl hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-white/[0.09]",
   light: "bg-white text-void hover:-translate-y-0.5 hover:bg-cloud shadow-soft",
   dark: "border border-white/10 bg-void-700 text-cloud hover:bg-void-600",
 };

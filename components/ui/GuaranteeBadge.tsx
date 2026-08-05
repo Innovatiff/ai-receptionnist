@@ -75,7 +75,7 @@ export function GuaranteeBadge({
       className={cn(
         "inline-flex items-center gap-2.5 rounded-full border px-4 py-2",
         tone === "dark"
-          ? "border-mint/25 bg-mint/[0.07] text-cloud backdrop-blur-xl"
+          ? "border-mint/25 bg-mint/[0.07] text-cloud lg:backdrop-blur-xl"
           : "border-violet-600/20 bg-white text-void shadow-soft",
         className
       )}

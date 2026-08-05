@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Phone, CalendarCheck, MessageSquareText, Check, Sparkles } from "lucide-react";
 import { Soundwave } from "@/components/ui/Soundwave";
@@ -36,21 +36,34 @@ const transcript = [
 export function CallSequence() {
   const reduced = usePrefersReducedMotion();
   const [i, setI] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const rootRef = useRef<HTMLDivElement>(null);
   const stage = ORDER[i];
 
+  // PERF: stop the loop (and its re-renders) once the card scrolls out of view.
   useEffect(() => {
-    if (reduced) return;
+    const el = rootRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), {
+      rootMargin: "100px",
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (reduced || !visible) return;
     const t = window.setTimeout(() => setI((v) => (v + 1) % ORDER.length), DURATIONS[stage]);
     return () => window.clearTimeout(t);
-  }, [stage, reduced]);
+  }, [stage, reduced, visible]);
 
   const s: Stage = reduced ? "texted" : stage;
 
   return (
-    <div className="relative mx-auto w-full max-w-[26rem]">
+    <div ref={rootRef} className="relative mx-auto w-full max-w-[26rem]">
       {/* halo */}
       <div
-        className="pointer-events-none absolute -inset-10 -z-10 rounded-[3rem] bg-violet-glow blur-2xl"
+        className="pointer-events-none absolute -inset-10 -z-10 rounded-[3rem] bg-violet-glow"
         aria-hidden
       />
 
@@ -111,8 +124,8 @@ export function CallSequence() {
                 key="r"
                 initial={reduced ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={reduced ? undefined : { opacity: 0, y: -10 }}
-                transition={{ duration: 0.35 }}
+                exit={reduced ? undefined : { opacity: 0, y: -10, transition: { duration: 0.16, delay: 0 } }}
+                transition={{ duration: 0.3, delay: 0.16 }}
                 className="absolute inset-5 flex flex-col items-center justify-center gap-5 text-center"
               >
                 <span className="relative flex h-24 w-24 items-center justify-center">
@@ -140,12 +153,12 @@ export function CallSequence() {
                 key="a"
                 initial={reduced ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={reduced ? undefined : { opacity: 0 }}
-                transition={{ duration: 0.35 }}
+                exit={reduced ? undefined : { opacity: 0, transition: { duration: 0.16, delay: 0 } }}
+                transition={{ duration: 0.3, delay: 0.16 }}
                 className="absolute inset-5 flex flex-col"
               >
                 <div className="flex items-center gap-3 pb-4">
-                  <Soundwave bars={7} height={24} />
+                  <Soundwave bars={7} height={24} hero />
                   <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-violet-300">
                     {CLIENT.assistant} is answering
                   </span>
@@ -175,8 +188,8 @@ export function CallSequence() {
                 key="b"
                 initial={reduced ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={reduced ? undefined : { opacity: 0 }}
-                transition={{ duration: 0.35 }}
+                exit={reduced ? undefined : { opacity: 0, transition: { duration: 0.16, delay: 0 } }}
+                transition={{ duration: 0.3, delay: 0.16 }}
                 className="absolute inset-5 flex flex-col gap-4"
               >
                 <div className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-4">

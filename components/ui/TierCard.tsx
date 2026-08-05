@@ -36,8 +36,8 @@ export function TierCard({
       className={cn(
         "relative flex flex-col rounded-3xl p-6 sm:p-7",
         featured
-          ? "border border-violet-400/40 bg-gradient-to-b from-violet-500/[0.16] to-violet-700/[0.05] shadow-violet ring-1 ring-white/[0.06] backdrop-blur-xl"
-          : "border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl transition-colors duration-300 hover:border-white/15",
+          ? "border border-violet-400/40 bg-gradient-to-b from-violet-500/[0.16] to-violet-700/[0.05] shadow-violet ring-1 ring-white/[0.06] lg:backdrop-blur-xl"
+          : "border border-white/[0.08] bg-white/[0.03] lg:backdrop-blur-xl transition-colors duration-300 hover:border-white/15",
         className
       )}
     >

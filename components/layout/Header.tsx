@@ -45,7 +45,7 @@ export function Header() {
           className={cn(
             "flex items-center justify-between gap-4 rounded-full px-4 py-2.5 transition-all duration-500 ease-out-expo sm:px-5 sm:py-3",
             scrolled
-              ? "border border-white/[0.08] bg-void-900/80 shadow-card backdrop-blur-xl"
+              ? "border border-white/[0.08] bg-void-900/80 shadow-card lg:backdrop-blur-xl"
               : "border border-transparent bg-transparent"
           )}
         >
@@ -84,7 +84,7 @@ export function Header() {
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-cloud backdrop-blur-xl lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-cloud lg:backdrop-blur-xl lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}

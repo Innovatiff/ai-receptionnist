@@ -50,7 +50,7 @@ export function BentoGrid() {
           variants={revealScale}
           className="glass card-hover group relative overflow-hidden p-6 sm:p-8 lg:col-span-4"
         >
-          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-violet-500/25 blur-3xl" aria-hidden />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(124,92,255,0.26),transparent_70%)]" aria-hidden />
           <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-sm">
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-300 ring-1 ring-violet-400/25 transition-transform duration-500 group-hover:scale-110">

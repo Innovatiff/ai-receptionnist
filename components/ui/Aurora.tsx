@@ -2,11 +2,17 @@
 
 import { motion } from "framer-motion";
 import { usePrefersReducedMotion } from "@/lib/useReducedMotion";
+import { useIsDesktop } from "@/lib/useIsDesktop";
 import { cn } from "@/lib/utils";
 
 /**
- * Living aurora backdrop — slow-drifting violet/ember orbs behind dark
- * sections. Transform/opacity only, decorative, static under reduced motion.
+ * Living aurora backdrop.
+ *
+ * PERF: the orbs are radial-gradients, which are already soft — stacking a
+ * `filter: blur()` on top of them was pure cost for no visual gain and was the
+ * single most expensive paint on mobile Safari. So: no blur filter at all, and
+ * the drift animation only runs on desktop pointers (phones get the same
+ * gradient, statically). Decorative + aria-hidden.
  */
 export function Aurora({
   className,
@@ -16,6 +22,9 @@ export function Aurora({
   intensity?: "soft" | "normal" | "loud";
 }) {
   const reduced = usePrefersReducedMotion();
+  const isDesktop = useIsDesktop();
+  const animate = isDesktop && !reduced;
+
   const o = intensity === "loud" ? 1 : intensity === "soft" ? 0.5 : 0.75;
 
   const orbs = [
@@ -25,30 +34,36 @@ export function Aurora({
   ];
 
   return (
-    <div className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)} aria-hidden>
-      {orbs.map((orb, i) => (
-        <motion.span
-          key={i}
-          className="absolute rounded-full blur-[100px]"
-          style={{
-            width: orb.s,
-            height: orb.s,
-            left: orb.x,
-            top: orb.y,
-            background: `radial-gradient(circle at center, ${orb.c}, transparent 70%)`,
-          }}
-          animate={
-            reduced
-              ? undefined
-              : {
-                  x: [0, i % 2 === 0 ? 70 : -70, 0],
-                  y: [0, i % 2 === 0 ? -50 : 50, 0],
-                  scale: [1, 1.18, 1],
-                }
-          }
-          transition={{ duration: orb.d, repeat: Infinity, ease: "easeInOut" }}
-        />
-      ))}
+    <div
+      className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
+      aria-hidden
+    >
+      {orbs.map((orb, i) => {
+        const style = {
+          width: orb.s,
+          height: orb.s,
+          left: orb.x,
+          top: orb.y,
+          background: `radial-gradient(circle at center, ${orb.c}, transparent 70%)`,
+        } as const;
+
+        if (!animate) {
+          return <span key={i} className="absolute rounded-full" style={style} />;
+        }
+        return (
+          <motion.span
+            key={i}
+            className="absolute rounded-full will-change-transform"
+            style={style}
+            animate={{
+              x: [0, i % 2 === 0 ? 70 : -70, 0],
+              y: [0, i % 2 === 0 ? -50 : 50, 0],
+              scale: [1, 1.18, 1],
+            }}
+            transition={{ duration: orb.d, repeat: Infinity, ease: "easeInOut" }}
+          />
+        );
+      })}
     </div>
   );
 }

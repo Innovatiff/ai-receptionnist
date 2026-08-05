@@ -101,12 +101,27 @@
     @apply bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent;
   }
 
-  /* Glass surfaces */
+  /*
+    Glass surfaces.
+    PERF: `backdrop-filter` is the most expensive thing you can put on a
+    scrolling page in mobile Safari — each element forces a readback of what's
+    behind it, every frame. On phones we use a slightly more opaque solid tint
+    instead (visually near-identical over our dark canvas) and only switch the
+    real blur on for large precise-pointer screens.
+  */
   .glass {
-    @apply rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl;
+    @apply rounded-3xl border border-white/[0.08] bg-white/[0.055];
   }
   .glass-strong {
-    @apply rounded-3xl border border-white/10 bg-white/[0.055] shadow-ring backdrop-blur-xl;
+    @apply rounded-3xl border border-white/10 bg-white/[0.075] shadow-ring;
+  }
+  @media (min-width: 1024px) and (pointer: fine) {
+    .glass {
+      @apply bg-white/[0.03] backdrop-blur-xl;
+    }
+    .glass-strong {
+      @apply bg-white/[0.055] backdrop-blur-xl;
+    }
   }
 
   /* Card with a soft violet edge-light on hover */
@@ -149,6 +164,17 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+
+  /*
+    PERF: let the browser skip layout/paint for sections that are far offscreen.
+    On these long pages that also stops offscreen infinite animations from
+    compositing. `auto` remembers the real size after first render, so scroll
+    position stays stable.
+  */
+  .section-perf {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
   }
 
   .marquee-mask {

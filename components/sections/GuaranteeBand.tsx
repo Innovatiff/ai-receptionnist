@@ -13,7 +13,7 @@ export function GuaranteeBand() {
     <section className="relative overflow-hidden bg-gradient-to-br from-violet-700 via-violet to-violet-800">
       <div className="grid-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden />
       <div
-        className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-mint/25 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(74,222,155,0.22),transparent_70%)]"
         aria-hidden
       />
       <div className="container-page relative py-20 sm:py-24">

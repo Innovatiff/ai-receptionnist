@@ -15,7 +15,7 @@ export function MobileCtaBar() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
-      <div className="border-t border-void-700/70 bg-void/90 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-md">
+      <div className="border-t border-void-700/70 bg-void/90 px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] lg:backdrop-blur-md">
         <div className="flex items-center gap-3">
           <a
             href={site.contact.demoLineHref}

@@ -31,7 +31,7 @@ export function DemoButton({
       className={cn(
         "group inline-flex h-14 items-center gap-3 whitespace-nowrap rounded-full pl-2 pr-6 text-[0.95rem] font-medium transition-all duration-300 ease-out-expo sm:h-16 sm:pl-2.5 sm:pr-7 sm:text-base",
         tone === "dark"
-          ? "border border-white/12 bg-white/[0.04] text-cloud backdrop-blur-xl hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-white/[0.09]"
+          ? "border border-white/12 bg-white/[0.04] text-cloud lg:backdrop-blur-xl hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-white/[0.09]"
           : "border border-void/10 bg-void/[0.03] text-void hover:-translate-y-0.5 hover:border-violet-600/40",
         className
       )}

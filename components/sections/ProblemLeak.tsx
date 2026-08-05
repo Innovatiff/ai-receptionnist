@@ -81,7 +81,7 @@ export function ProblemLeak() {
         <motion.div variants={revealScale} {...inViewSoft}>
           <div className="glass-strong relative overflow-hidden p-8 text-center sm:p-10">
             <div
-              className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-ember/25 blur-3xl"
+              className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,138,76,0.24),transparent_70%)]"
               aria-hidden
             />
             <p className="relative inline-flex items-center gap-2 rounded-full border border-ember/25 bg-ember/10 px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ember">

@@ -35,7 +35,7 @@ export function Section({
     <Tag
       id={id}
       className={cn(
-        "relative scroll-mt-24 overflow-hidden py-20 sm:py-24 lg:py-32 3xl:py-40",
+        "section-perf relative scroll-mt-24 overflow-hidden py-20 sm:py-24 lg:py-32 3xl:py-40",
         toneClasses[tone],
         className
       )}

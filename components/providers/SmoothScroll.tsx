@@ -24,8 +24,12 @@ export default function SmoothScroll({
 
     gsap.registerPlugin(ScrollTrigger);
 
-    if (prefersReduced) {
-      // No smoothing; ScrollTrigger still works off native scroll.
+    // PERF: never hijack scrolling on touch devices. Lenis re-implements
+    // scrolling in JS, which fights iOS Safari's native (GPU-driven) momentum
+    // scroll and is a major source of stutter on iPhone. Native scroll there.
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+    if (prefersReduced || isTouch) {
       ScrollTrigger.refresh();
       return;
     }

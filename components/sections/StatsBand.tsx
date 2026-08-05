@@ -45,7 +45,7 @@ export function StatsBand() {
             className="glass card-hover group relative overflow-hidden p-6 sm:p-7"
           >
             <div
-              className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-violet-500/20 blur-2xl transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
+              className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(124,92,255,0.22),transparent_70%)] transition-opacity duration-500 group-hover:opacity-100 sm:opacity-60"
               aria-hidden
             />
             <p className="relative font-display text-4xl font-bold text-white sm:text-5xl">

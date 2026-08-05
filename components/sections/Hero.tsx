@@ -34,13 +34,18 @@ function RotatingWord() {
       <span className="invisible block whitespace-nowrap pb-[0.09em]" aria-hidden>
         follows up
       </span>
+      {/*
+        Crossfade in place. A vertical slot-machine slide reads as two
+        half-words at once at this line-height, so we dissolve instead: the
+        incoming word fades up over the outgoing one, always in the same spot.
+      */}
       <AnimatePresence initial={false}>
         <motion.span
           key={i}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: "0%", opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: "12%" }}
+          animate={{ opacity: 1, y: "0%" }}
+          exit={{ opacity: 0, y: "-12%" }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-gradient absolute inset-0 whitespace-nowrap pb-[0.09em]"
         >
           {ROTATING[i]}
@@ -105,7 +110,7 @@ export function Hero() {
               {trustStrip.map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-haze backdrop-blur-xl"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-haze lg:backdrop-blur-xl"
                 >
                   <span className="h-1 w-1 rounded-full bg-violet-400" aria-hidden />
                   {item}
@@ -120,7 +125,7 @@ export function Hero() {
             transition={{ duration: 0.85, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full"
           >
-            <div className="motion-safe:animate-float-slow">
+            <div className="lg:motion-safe:animate-float-slow">
               <CallSequence />
             </div>
           </motion.div>
