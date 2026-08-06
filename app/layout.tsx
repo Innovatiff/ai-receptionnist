@@ -5,7 +5,6 @@ import { defaultMetadata, localBusinessJsonLd } from "@/lib/seo";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
@@ -27,9 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
-      {/* Bottom padding clears the sticky mobile CTA bar (incl. the iPhone
-          home indicator) for the whole page — footer included. */}
-      <body className="min-h-dvh bg-void pb-[calc(5.25rem+env(safe-area-inset-bottom))] text-cloud lg:pb-0">
+      <body className="min-h-dvh bg-void text-cloud">
         <JsonLd data={localBusinessJsonLd()} />
         <a
           href="#main"
@@ -43,7 +40,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <MobileCtaBar />
         </SmoothScroll>
         <Analytics />
       </body>

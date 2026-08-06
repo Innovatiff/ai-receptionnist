@@ -19,7 +19,7 @@ export function HearItYourself() {
       />
       <div className="relative mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Don't take our word for it"
+          eyebrow="Hear it yourself"
           title={
             <>
               Don&apos;t take our word for it. <span className="text-gradient">Hear it.</span>

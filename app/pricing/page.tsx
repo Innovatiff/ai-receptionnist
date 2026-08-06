@@ -25,7 +25,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
-        pill="One booked job pays for the month"
+        pill="One job pays the month"
         eyebrow="Simple, honest pricing"
         title={
           <>
@@ -42,7 +42,7 @@ export default function PricingPage() {
       <PricingTiers
         variant="full"
         tone="deep"
-        eyebrow="Three plans, one finished front desk"
+        eyebrow="One finished front desk"
         title="Pick your plan. Cancel anytime."
         intro="Every plan is built for your business and live in 7 days. Extra minutes are billed at the plain rate on your plan — no surprises."
       />

@@ -47,8 +47,7 @@ export default async function IndustryPage({
   return (
     <>
       <PageHero
-        pill={`Built for ${ind.short}`}
-        eyebrow={`AI Receptionist for ${ind.name}`}
+        pill={`AI receptionist for ${ind.short}`}
         title={ind.headline}
         intro={ind.sub}
       >
@@ -94,7 +93,7 @@ export default async function IndustryPage({
       {/* Industry-tuned calculator */}
       <Section tone="deep">
         <SectionHeading
-          eyebrow="Your missed-money estimate"
+          eyebrow="Missed-money estimate"
           title={
             <>
               What missed calls likely cost a{" "}

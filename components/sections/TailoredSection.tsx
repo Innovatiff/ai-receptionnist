@@ -55,7 +55,7 @@ export function TailoredSection() {
         <div>
           <SectionHeading
             align="left"
-            eyebrow="Not off-the-shelf — built for you"
+            eyebrow="Built for your business"
             title={
               <>
                 Your AI. <span className="text-gradient">Your name.</span> Your rules.

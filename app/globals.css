@@ -89,8 +89,10 @@
     @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
   }
 
+  /* Eyebrow / pill label. Uppercase + wide tracking eats horizontal space, so
+     it tightens on small screens and never wraps — these are single-line tags. */
   .eyebrow {
-    @apply text-eyebrow font-mono font-medium uppercase tracking-[0.18em];
+    @apply whitespace-nowrap font-mono text-[0.65rem] font-medium uppercase tracking-[0.1em] sm:text-eyebrow sm:tracking-[0.18em];
   }
 
   /* Gradient text */

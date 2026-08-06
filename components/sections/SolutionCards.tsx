@@ -35,7 +35,7 @@ export function SolutionCards() {
     <Section tone="deep" id="solution">
       <SectionHeading
         tone="dark"
-        eyebrow="The plug for your leaky bucket"
+        eyebrow="Plugging the leak"
         title="Never sleeps. Never quits. Never misses."
         intro="One system that answers, books, and follows up — 24/7."
       />

@@ -12,8 +12,8 @@ export function TrustMarquee() {
 
   return (
     <section className="relative border-y border-white/[0.06] bg-void-900/60 py-10 sm:py-12">
-      <p className="mb-7 text-center text-xs font-medium uppercase tracking-[0.2em] text-haze/70">
-        Trusted by local businesses that book by phone
+      <p className="mb-7 whitespace-nowrap px-4 text-center text-[0.6rem] font-medium uppercase tracking-[0.12em] text-haze/70 sm:text-xs sm:tracking-[0.2em]">
+        Trusted by local businesses
       </p>
       <div className="marquee-mask relative flex overflow-hidden">
         <div className="flex shrink-0 animate-marquee items-center gap-10 pr-10 sm:gap-14 sm:pr-14 motion-reduce:animate-none">

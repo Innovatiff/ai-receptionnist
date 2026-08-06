@@ -35,7 +35,7 @@ export default function DemoPage() {
   return (
     <>
       <PageHero
-        pill="I'll answer a live call for you"
+        pill="Hear it answer live"
                 title={
           <>
             Hear it answer a live call.{" "}
