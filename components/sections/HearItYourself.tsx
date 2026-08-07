@@ -12,11 +12,11 @@ import { site } from "@/content/site";
 /** 4.4 Hear It Yourself — live proof. A prominent credibility unlock. */
 export function HearItYourself() {
   return (
-    <Section tone="void" id="hear-it">
-      <div
-        className="pointer-events-none absolute inset-0 bg-violet-glow opacity-30"
-        aria-hidden
-      />
+    <Section
+      tone="void"
+      id="hear-it"
+      backdrop={<div className="pointer-events-none absolute inset-0 bg-violet-glow opacity-30" aria-hidden />}
+    >
       <div className="relative mx-auto max-w-3xl">
         <SectionHeading
           eyebrow="Hear it yourself"

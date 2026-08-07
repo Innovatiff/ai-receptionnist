@@ -30,8 +30,7 @@ const moments = [
 
 export function ProblemLeak() {
   return (
-    <Section tone="void" id="problem">
-      <Aurora intensity="soft" />
+    <Section tone="void" id="problem" backdrop={<Aurora intensity="soft" />}>
       <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-16">
         <div>
           <SectionHeading

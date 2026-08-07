@@ -17,13 +17,29 @@ import { cn } from "@/lib/utils";
 export function Aurora({
   className,
   intensity = "normal",
+  fade = true,
 }: {
   className?: string;
   intensity?: "soft" | "normal" | "loud";
+  /**
+   * Fade the glow out at the top/bottom edges. Sections clip their contents, so
+   * an orb that reaches the section boundary gets sliced off and reads as a
+   * hard rectangle. Fading means the cut happens where alpha is already 0.
+   */
+  fade?: boolean;
 }) {
   const reduced = usePrefersReducedMotion();
   const isDesktop = useIsDesktop();
   const animate = isDesktop && !reduced;
+
+  const fadeMask = fade
+    ? {
+        maskImage:
+          "linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%)",
+      }
+    : undefined;
 
   const o = intensity === "loud" ? 1 : intensity === "soft" ? 0.5 : 0.75;
 
@@ -36,6 +52,7 @@ export function Aurora({
   return (
     <div
       className={cn("pointer-events-none absolute inset-0 overflow-hidden", className)}
+      style={fadeMask}
       aria-hidden
     >
       {orbs.map((orb, i) => {

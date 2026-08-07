@@ -58,7 +58,7 @@ function RotatingWord() {
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-[calc(var(--header-h)+2.5rem)] sm:pt-[calc(var(--header-h)+4rem)] lg:pt-[calc(var(--header-h)+5rem)]">
-      <Aurora intensity="loud" />
+      <Aurora intensity="loud" fade={false} />
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-[0.5]" aria-hidden />
       {/* top vignette so the header floats cleanly */}
       <div

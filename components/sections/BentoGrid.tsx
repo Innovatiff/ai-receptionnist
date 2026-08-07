@@ -27,8 +27,7 @@ export function BentoGrid() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <Section tone="void" id="capabilities">
-      <Aurora intensity="soft" />
+    <Section tone="void" id="capabilities" backdrop={<Aurora intensity="soft" />}>
       <SectionHeading
         eyebrow="What it does"
         title={

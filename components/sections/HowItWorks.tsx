@@ -63,8 +63,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <Section tone="deep" id="how-it-works">
-      <Aurora intensity="soft" />
+    <Section tone="deep" id="how-it-works" backdrop={<Aurora intensity="soft" />}>
       <SectionHeading
         eyebrow="How it works"
         title={

@@ -29,7 +29,7 @@ export function PageHero({
   const centered = align === "center";
   return (
     <section className="relative overflow-hidden pb-16 pt-[calc(var(--header-h)+3.5rem)] sm:pb-20 sm:pt-[calc(var(--header-h)+5rem)] lg:pb-24 lg:pt-[calc(var(--header-h)+6.5rem)]">
-      <Aurora intensity="normal" />
+      <Aurora intensity="normal" fade={false} />
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" aria-hidden />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-void to-transparent"

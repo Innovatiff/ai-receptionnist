@@ -16,6 +16,7 @@ const toneClasses: Record<Tone, string> = {
  */
 export function Section({
   children,
+  backdrop,
   tone = "void",
   className,
   innerClassName,
@@ -24,6 +25,13 @@ export function Section({
   as: Tag = "section",
 }: {
   children: React.ReactNode;
+  /**
+   * Full-bleed decoration (Aurora, grids, glows). MUST go here rather than in
+   * `children`: the content column is `relative` and max-width-capped, so an
+   * `absolute inset-0` backdrop nested inside it gets clipped to that column —
+   * which shows up as a hard rectangle where the glow is cut off.
+   */
+  backdrop?: React.ReactNode;
   tone?: Tone;
   className?: string;
   innerClassName?: string;
@@ -40,6 +48,7 @@ export function Section({
         className
       )}
     >
+      {backdrop}
       <div className={cn(narrow ? "container-narrow" : "container-page", "relative", innerClassName)}>
         {children}
       </div>

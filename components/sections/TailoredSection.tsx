@@ -48,9 +48,16 @@ const deployments = [
 
 export function TailoredSection() {
   return (
-    <Section tone="deep" id="tailored">
-      <Aurora intensity="soft" />
-      <div className="grid-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+    <Section
+      tone="deep"
+      id="tailored"
+      backdrop={
+        <>
+          <Aurora intensity="soft" />
+          <div className="grid-dots pointer-events-none absolute inset-0 opacity-40" aria-hidden />
+        </>
+      }
+    >
       <div className="relative grid gap-14 lg:grid-cols-[1fr_0.95fr] lg:items-center">
         <div>
           <SectionHeading

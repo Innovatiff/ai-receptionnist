@@ -20,8 +20,7 @@ const stats = [
 
 export function StatsBand() {
   return (
-    <Section tone="deep" id="stats">
-      <Aurora intensity="soft" />
+    <Section tone="deep" id="stats" backdrop={<Aurora intensity="soft" />}>
       <SectionHeading
         eyebrow="Why it works"
         title={
